@@ -48,14 +48,14 @@
     </nav>
 
     <section id="inicio" class="cover overflow-hidden inverted bg-black mb-10">
-        <div class="d-flex flex-column min-vh-75 container py-10 level-1">
+        <div class="d-flex flex-column min-vh-100 container py-10 level-1">
           <div class="row justify-content-center my-auto">
             <div class="col-md-8 text-center">
              <!--<span class="eyebrow text-secondary">FL Solutions Services SRL</span>--> 
               <h3 class="display-4 lh-sm fw-bold">Ventas, Reparación y Mantenimiento de Aires Acondicionados y Línea Blanca.
               </h3>
               <p class="lead text-white mb-4">Soluciones integrales en climatización con garantía, asesoría personalizada y precios competitivos.</p>
-              <a href="https://wa.link/gyoj31" class="btn rounded-pill text-white" style="background-color: #0f4367;">Solicita tu cotización ahora</a>
+              <a href="https://wa.link/gyoj31" class="btn rounded-pill" style="background-color: #ffffff; color: #0f4367; border: 1px solid #0f4367;" onmouseover="this.style.backgroundColor='#0f4367';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff';this.style.color='#0f4367'">Solicita tu cotización ahora</a>
             </div>
           </div>
         </div>
@@ -113,7 +113,9 @@
       </section>
       
       <!--seccion de servicios-->
-      <section id="servicios" class="pt-3 pb-10 text-white" style="background-color: #0f4367;">
+      <section id="servicios" class="pt-3 pb-10 text-white" style="background-color: #163d56;">
+      
+      
         <div class="container mt-10 level-3">
 
             <div class="row mb-md-10">
@@ -122,307 +124,411 @@
               </div>
             </div>
 
-            <div class="row g-3 g-xl-5">
-              <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
-                <span class="d-flex justify-content-center"> 
-                  <img class="img-fluid" style="width: 200px; height: 200px; object-fit: contain;" src="/public_html/assets/images/instalacionnn.png" alt="">
-                </span>
-                <h4 class="h5 my-2">Instalación Básica de Aire Acondicionado 12K-18K BTU.</h4>
-                <p style="color: #c6c6c6;">Nuestro servicio de instalación básica de aire acondicionado tipo split (12,000 y 18,000 BTU) incluye los materiales provistos por el fabricante (los que vienen con el equipo), hasta 10 pies de tubería e instalación eléctrica siempre que haya una fuente de 220V ubicada a menos de 5 pies del lugar de instalación. Este servicio no incluye desinstalaciones previas ni instalaciones en pisos superiores sin acceso seguro.</p>
-                <a href="https://wa.link/gyoj31" class="btn rounded-pill text-white fw-bold border-2 border-info" style="color: #2daae1; transition: all 0.3s ease; box-shadow: 0 0 10px #2daae1;">Pide tu cotización ahora!</a>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
-                <span class="d-flex justify-content-center">
-                  <img class="img-fluid" style="width: 200px; height: 200px; object-fit: contain;" src="/public_html/assets/images/mantenimientoo.png" alt="">
-                </span>
-                <h4 class="h5 my-2">Diagnóstico y Evaluación de Aire Acondicionado.</h4>
-                <p style="color: #c6c6c6;">Nuestro servicio de diagnóstico y evaluación de aire acondicionado permite identificar problemas que afecten su rendimiento. Un técnico especializado analizará tu equipo para ofrecerte un informe detallado y recomendaciones. Aplicable solo a nuestros aires acondicionados.</p>
-                <a href="https://wa.link/gyoj31" class="btn rounded-pill text-white fw-bold border-2 border-info" style="color: #2daae1; transition: all 0.3s ease; box-shadow: 0 0 10px #2daae1;">Pide tu cotización ahora!</a>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
-                <span class="d-flex justify-content-center">
-                  <img class="img-fluid" style="width: 200px; height: 200px; object-fit: contain;" src="/public_html/assets/images/mantenimientoo2.png" alt="">
-                </span>
-                <h4 class="h5 my-2">Mantenimiento de Aire Acondicionado Airmax y Gree.</h4>
-                <p style="color: #c6c6c6;">Servicio de mantenimiento de aire acondicionado para equipos Airmax y Gree de 12,000 BTU, 18,000 BTU y 24,000 BTU. Nuestro equipo técnico garantiza una limpieza profunda y revisión completa para optimizar el rendimiento y prolongar la vida útil de tu equipo.</p>
-                <a href="https://wa.link/gyoj31" class="btn rounded-pill text-white fw-bold border-2 border-info" style="color: #2daae1; transition: all 0.3s ease; box-shadow: 0 0 10px #2daae1;">Pide tu cotización ahora!</a>
-              </div>
-            </div>
+            <!-- Carrusel de servicios con tarjetas, visualizando 3 a la vez, autoshow cada 2 segundos -->
+            <style>
+              .card-servicio {
+                background: #163d56;
+                border-radius: 16px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+                padding: 24px 18px 28px 18px;
+                margin: 0 8px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: box-shadow 0.2s;
+                border: 1px solid #244e6b;
+                min-height: 480px;
+              }
+              .card-servicio:hover {
+                box-shadow: 0 4px 24px rgba(45,170,225,0.15);
+                border-color: #2daae1;
+              }
+              .card-servicio img {
+                width: 120px;
+                height: 120px;
+                object-fit: contain;
+                margin-bottom: 16px;
+              }
+              .card-servicio h4 {
+                color: #fff;
+                font-weight: 600;
+                margin-bottom: 10px;
+                min-height: 48px;
+                text-align: center;
+              }
+              .card-servicio p {
+                color: #c6c6c6;
+                font-size: 15px;
+                margin-bottom: 0;
+                min-height: 90px;
+                text-align: center;
+                flex: 1 1 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              .card-servicio .btn-cotiza {
+                background: #2daae1;
+                color: #fff !important;
+                border: none;
+                border-radius: 6px !important;
+                font-weight: 600;
+                padding: 10px 22px;
+                box-shadow: none !important;
+                transition: background 0.2s, color 0.2s;
+                text-transform: none;
+                font-size: 16px;
+                letter-spacing: 0.5px;
+                width: 100%;
+                margin-top: 24px;
+                margin-bottom: 0;
+                align-self: stretch;
+              }
+              .card-servicio .btn-cotiza:hover, .card-servicio .btn-cotiza:focus {
+                background: #1b7ca6;
+                color: #fff !important;
+              }
+              @media (max-width: 767px) {
+                .card-servicio {
+                  margin-bottom: 24px;
+                  min-height: unset;
+                }
+              }
+              /* Separar las flechas del carrusel */
+              #serviciosCarousel .carousel-control-prev,
+              #serviciosCarousel .carousel-control-next {
+                width: 5%;
+                min-width: 48px;
+                max-width: 60px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 2;
+              }
+              #serviciosCarousel .carousel-control-prev {
+                left: -60px;
+              }
+              #serviciosCarousel .carousel-control-next {
+                right: -60px;
+              }
+              @media (max-width: 991px) {
+                #serviciosCarousel .carousel-control-prev {
+                  left: -30px;
+                }
+                #serviciosCarousel .carousel-control-next {
+                  right: -30px;
+                }
+              }
+              @media (max-width: 767px) {
+                #serviciosCarousel .carousel-control-prev,
+                #serviciosCarousel .carousel-control-next {
+                  left: 0;
+                  right: 0;
+                  width: 10%;
+                }
+                #serviciosCarousel .carousel-control-prev {
+                  left: 0;
+                }
+                #serviciosCarousel .carousel-control-next {
+                  right: 0;
+                }
+              }
+              /* Espaciado extra entre el carrusel y la siguiente sección */
+              .separador-carrusel {
+                margin-top: 140px;
+                margin-bottom: 140px;
+              }
+              @media (max-width: 991px) {
+                .separador-carrusel {
+                  margin-top: 80px;
+                  margin-bottom: 80px;
+                }
+              }
+              @media (max-width: 767px) {
+                .separador-carrusel {
+                  margin-top: 48px;
+                  margin-bottom: 48px;
+                }
+              }
+            </style>
+            <div class="position-relative">
+              <div id="serviciosCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                <div class="carousel-inner">
 
-            <div class="row g-3 g-xl-5 pt-5">
-                <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
-                  <span class="d-flex justify-content-center">
-                    <img class="img-fluid" style="width: 200px; height: 200px; object-fit: contain;" src="/public_html/assets/images/instalacionn.png" alt="">
-                  </span>
-                  <h4 class="h5 my-2">Servicio de Desinstalación de Aire Acondicionado Split.</h4>
-                  <p style="color: #c6c6c6;">Ofrecemos servicio de desinstalación de aire acondicionado tipo split con capacidades de 12,000 a 24,000 BTU. Nuestro equipo profesional garantiza un proceso seguro y eficiente, evitando daños en la unidad y el entorno.</p>
-                  <a href="https://wa.link/gyoj31" class="btn rounded-pill text-white fw-bold border-2 border-info" style="color: #2daae1; transition: all 0.3s ease; box-shadow: 0 0 10px #2daae1;">Pide tu cotización ahora!</a>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
-                  <span class="d-flex justify-content-center">
-                    <img class="img-fluid" style="width: 200px; height: 200px; object-fit: contain;" src="/public_html/assets/images/instalacionn2.png" alt="">
-                  </span>
-                  <h4 class="h5 my-2">Instalación Básica de Aire Acondicionado 36,000 BTU.</h4>
-                  <p style="color: #c6c6c6;">Servicio de instalación básica de aire acondicionado split de 36,000 BTU. Incluye materiales de fábrica, 10 pies de tubería y requiere una fuente eléctrica 220V a menos de 5 pies. No aplica para desinstalaciones previas ni instalaciones en pisos superiores sin acceso seguro.</p>
-                  <a href="https://wa.link/gyoj31" class="btn rounded-pill text-white fw-bold border-2 border-info" style="color: #2daae1; transition: all 0.3s ease; box-shadow: 0 0 10px #2daae1;">Pide tu cotización ahora!</a>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
-                  <span class="d-flex justify-content-center">
-                    <img class="img-fluid" style="width: 200px; height: 200px; object-fit: contain;" src="/public_html/assets/images/instalacionn3.png" alt="">
-                  </span>
-                  <h4 class="h5 my-2">Instalación Básica de Aire Acondicionado 24,000 BTU.</h4>
-                  <p style="color: #c6c6c6;">Servicio de instalación básica de aire acondicionado split de 24,000 BTU. Incluye los materiales de fábrica, 10 pies de tubería y requiere una fuente eléctrica 220V a menos de 5 pies. No aplica para desinstalaciones previas ni instalaciones en pisos superiores sin acceso seguro.</p>
-                  <a href="https://wa.link/gyoj31" class="btn rounded-pill text-white fw-bold border-2 border-info" style="color: #2daae1; transition: all 0.3s ease; box-shadow: 0 0 10px #2daae1;">Pide tu cotización ahora!</a>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 text-center mx-auto mb-4">
-                  <span class="d-flex justify-content-center">
-                    <img class="img-fluid" style="width: 200px; height: 200px; object-fit: contain;" src="/public_html/assets/images/mantenimientoo3.png" alt="">
-                  </span>
-                  <h4 class="h5 my-2">Instalación de base Aire Acondicionado Split con base incluida (12K-18K).</h4>
-                  <p style="color: #c6c6c6;">Servicio de instalación de aire acondicionado split con capacidades de 12,000 a 18,000 BTU, incluyendo base para el condensador. Se realiza en ubicaciones de hasta tercer piso, con acceso seguro. Para equipos de 18,000 BTU más grandes, se requiere una base adicional (no incluida).</p>
-                  <a href="https://wa.link/gyoj31" class="btn rounded-pill text-white fw-bold border-2 border-info" style="color: #2daae1; transition: all 0.3s ease; box-shadow: 0 0 10px #2daae1;">Pide tu cotización ahora!</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row justify-content-center pt-10">
-            <div class="col-lg-8 text-center">
-              <h5 class="fs-20">Conoce nuestras membresias Gold y Silver, <a href="membresias.html" class="action underline" style="color: #2daae1;"> Saber más <i class="bi bi-arrow-right"></i></a> </h5>
-            </div>
-          </div>
-      </section>
-      <!--seccion de como obtener nuestro servicio-->
-      <section class="py-10 bg-black inverted min-vh-100">
-        <div class="container">
-          <div class="row justify-content-center mb-8">
-            <div class="col-lg-8 text-center">
-              <h2>¿Cómo obtener nuestros servicios de reparación y/o mantenimiento?</h2>
-            </div>
-          </div>
-          <div class="row g-4">
-            <div class="col-md-3 text-center">
-              <span class="h1 mb-3 d-block" style="color: #2daae1;">1</span>
-              <h4 class="h5">Selecciona tu servicio y/o producto</h4>
-              <p style="color: #c6c6c6;">Elige el servicio que deseas contratar o el producto que deseas adquirir.</p>
-            </div>
-            <div class="col-md-3 text-center">
-              <span class="h1 mb-3 d-block" style="color: #2daae1;">2</span>
-              <h4 class="h5">Contáctanos</h4>
-              <p style="color: #c6c6c6;">Escríbenos por WhatsApp o llámanos para solicitar información sobre nuestros servicios.</p>
-            </div>
-            <div class="col-md-3 text-center">
-              <span class="h1 mb-3 d-block" style="color: #2daae1;">3</span>
-              <h4 class="h5">Diagnóstico</h4>
-              <p style="color: #c6c6c6;">En caso de que se trate de un mantenimiento o reparación, nuestro equipo técnico evaluará tus necesidades y te brindará una cotización detallada.</p>
-            </div>
-            <div class="col-md-3 text-center">
-              <span class="h1 mb-3 d-block" style="color: #2daae1;">4</span>
-              <h4 class="h5">Programación</h4>
-              <p style="color: #c6c6c6;">Coordinamos la fecha y hora que mejor se adapte a tu disponibilidad.</p>
-            </div>
-            <div class="col-md-3 text-center mx-auto">
-              <span class="h1 mb-3 d-block" style="color: #2daae1;">5</span>
-              <h4 class="h5">Realiza el pago</h4>
-              <p style="color: #c6c6c6;">Realiza el pago de tu servicio o producto.</p>
-            </div>
-            <div class="col-md-3 text-center mx-auto">
-              <span class="h1 mb-3 d-block" style="color: #2daae1;">6</span>
-              <h4 class="h5">Servicio</h4>
-              <p style="color: #c6c6c6;">Realizamos el servicio solicitado con profesionalismo y garantía de calidad.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-     
-
-      <section id="catalogo" class="overflow-hidden pt-10">
-        <div class="container">
-          <div class="row align-items-end mb-5">
-            <div class="col-lg-8 mb-2 mb-lg-0">
-              <h2 class="fw-bold">Equipos Disponibles</h2>
-            </div>
-            <div class="col-lg-4 text-lg-end">
-              <a href="https://wa.link/or507r" class="underline action" style="color: #2daae1;">Solicita lista completa de precios<i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="carousel carousel-visible" data-aos="fade-left">
-            <div
-              data-carousel='{"nav": false,"mouseDrag": true, "gutter": 32, "loop": true, "responsive": {"0": {"items": 1}, "768": {"items": 2}, "992": {"items": 2}, "1200": {"items": 3}}}'>
-              <div>
-                <div class="product">
-                  <figure class="product-image">
-                    <a href="#!">
-                      <img src="assets/images/products/TGM-AIRE.png" alt="Image" />
-                      <img src="assets/images/products/TGM-CONDEX.png" alt="Image" />
-                    </a>
-                  </figure>
-                  <a class="product-title" href="#!">12,000 BTU TGM Inverter SEER 19</a>
-                </div>            </div>
-              <div>
-                <div class="product">
-                  <figure class="product-image">
-                    <a href="#!">
-                      <img src="assets/images/products/MILEXUS-AIRE.png" alt="Image" />
-                      <img src="assets/images/products/MILEXUS-CONDEX.png" alt="Image" />
-                    </a>
-                  </figure>
-                  <a class="product-title" href="#!">18,000 BTU Milexus Inverter</a>
-                </div>           
-               </div>
-                <div>
-                  <div class="product">
-                   <figure class="product-image">
-                     <a href="#!">
-                       <img src="assets/images/products/NISATO AIRE.webp" alt="Image" />
-                       <img src="assets/images/products/NISATO CONDENSADOR.png" alt="Image" />
-                     </a>
-                   </figure>
-                   <a class="product-title" href="#!">12,000 BTU NISATO</a>
-                 </div>
-                 </div>
-              <div>
-                <div class="product">
-                  <figure class="product-image">
-                    <a href="#!">
-                      <img src="assets/images/products/TGM-AIRE.png" alt="Image" />
-                      <img src="assets/images/products/TGM-CONDEX.png" alt="Image" />
-                    </a>
-                  </figure>
-                  <a class="product-title" href="#!">24,000 BTU TGM Inverter SEER 20 </a>
-                </div>            </div>
-              <div>
-                <div class="product">
-                  <figure class="product-image">
-                    <a href="#!">
-                      <img src="assets/images/products/TGM-AIRE.png" alt="Image" />
-                      <img src="assets/images/products/TGM-CONDEX.png" alt="Image" />
-                    </a>
-                  </figure>
-                  <a class="product-title" href="#!">36,000 BTU TGM Inverter</a>
-                </div>
-               </div>
-             </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--seccion de porque nosotros y ellos no-->
-        <section class="py-15 py-xl-20">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-10">
-                <h2 class="text-center mb-5">¿Por qué <span class="fw-bold">elegirnos?</span></h2>
-                <div class="card">
-                  <div class="card-body p-0">
-                    <div class="row g-0">
-                      <div class="col-md-6 p-4 text-white" style="background-color: #0D4367; margin-bottom: 24px; border-radius: 8px 0 0 8px;">
-                        <h4 class="text-center mb-4">Nosotros <span style="color: #2daae1;"><img src="assets/images/logo.png" alt="" style="width: 20px; height: 20px;"></span></h4>
-                        <ul class="list-unstyled mb-0">
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-check2-circle me-2"></i>
-                            <span class="fw-bold">Membresias de mantenimiento</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-check2-circle me-2"></i>
-                            <span>Entrega garantizada</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-check2-circle me-2"></i>
-                            <span>Servicio de entrega con plataforma elevadora (opcional) - costo adicional</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-check2-circle me-2"></i>
-                            <span>Soporte tecnico profesional</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-check2-circle me-2"></i>
-                            <span>Reclamaciones de seguro procesadas por nosotros</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-check2-circle me-2"></i>
-                            <span>Envío rapido</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-check2-circle me-2"></i>
-                            <span>Instalación profesional </span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-check2-circle me-2"></i>
-                            <span>Asesoria gratuita</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-check2-circle me-2"></i>
-                            <span>Personal profesional y capacitado</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-check2-circle me-2"></i>
-                            <span>Manual de uso y cuidado</span>
-                          </li>
-                          <li class="d-flex align-items-center">
-                            <i class="bi bi-check2-circle me-2"></i>
-                            <span>Procesamiento de garantía incluido en todos nuestros productos</span>
-                          </li>
-                        </ul>
+                  <div class="carousel-item active">
+                    <div class="row justify-content-center">
+                      <div class="col-12 col-md-4 d-flex">
+                        <div class="card-servicio w-100">
+                          <img src="assets/images/instalacionnn.png" alt="Instalación básica">
+                          <h4>Instalación Básica de Aire Acondicionado 12K-18K BTU.</h4>
+                          <p>Nuestro servicio de instalación básica de aire acondicionado tipo split (12,000 y 18,000 BTU) incluye los materiales provistos por el fabricante (los que vienen con el equipo), hasta 10 pies de tubería e instalación eléctrica siempre que haya una fuente de 220V ubicada a menos de 5 pies del lugar de instalación. Este servicio no incluye desinstalaciones previas ni instalaciones en pisos superiores sin acceso seguro.</p>
+                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
+                        </div>
                       </div>
-                      <div class="col-md-6 bg-light p-4" style="margin-top: 24px; border-radius: 0 8px 8px 0;">
-                        <h4 class="text-center mb-4">Otras Empresas</h4>
-                        <ul class="list-unstyled mb-0">
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-x-circle me-2 text-danger"></i>
-                            <span>Cobran extremadamente alto por envío y tarifas</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-x-circle me-2 text-danger"></i>
-                            <span>Sin garantía de entrega</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-x-circle me-2 text-danger"></i>
-                            <span>Precios elevados por plataforma elevadora</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-x-circle me-2 text-danger"></i>
-                            <span>Sin servicio de entrega interior</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-x-circle me-2 text-danger"></i>
-                            <span>Cobran extra por procesar reclamos</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-x-circle me-2 text-danger"></i>
-                            <span>Envío lento o productos sin stock</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-x-circle me-2 text-danger"></i>
-                            <span>Sin servicio de instalación</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-x-circle me-2 text-danger"></i>
-                            <span>Sin asesoria gratuita</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-x-circle me-2 text-danger"></i>
-                            <span>Sin soporte técnico</span>
-                          </li>
-                          <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-x-circle me-2 text-danger"></i>
-                            <span>Sin material de apoyo</span>
-                          </li>
-                          <li class="d-flex align-items-center">
-                            <i class="bi bi-x-circle me-2 text-danger"></i>
-                            <span>Sin procesamiento de garantía</span>
-                          </li>
-                        </ul>
+                      <div class="col-12 col-md-4 d-flex">
+                        <div class="card-servicio w-100">
+                          <img src="assets/images/mantenimientoo.png" alt="Diagnóstico y Evaluación">
+                          <h4>Diagnóstico y Evaluación de Aire Acondicionado.</h4>
+                          <p>Nuestro servicio de diagnóstico y evaluación de aire acondicionado permite identificar problemas que afecten su rendimiento. Un técnico especializado analizará tu equipo para ofrecerte un informe detallado y recomendaciones. Aplicable solo a nuestros aires acondicionados.</p>
+                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 d-flex">
+                        <div class="card-servicio w-100">
+                          <img src="assets/images/mantenimientoo2.png" alt="Mantenimiento Airmax y Gree">
+                          <h4>Mantenimiento de Aire Acondicionado Airmax y Gree.</h4>
+                          <p>Servicio de mantenimiento de aire acondicionado para equipos Airmax y Gree de 12,000 BTU, 18,000 BTU y 24,000 BTU. Nuestro equipo técnico garantiza una limpieza profunda y revisión completa para optimizar el rendimiento y prolongar la vida útil de tu equipo.</p>
+                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="carousel-item">
+                    <div class="row justify-content-center">
+                      <div class="col-12 col-md-4 d-flex">
+                        <div class="card-servicio w-100">
+                          <img src="assets/images/instalacionn.png" alt="Desinstalación Split">
+                          <h4>Servicio de Desinstalación de Aire Acondicionado Split.</h4>
+                          <p>Ofrecemos servicio de desinstalación de aire acondicionado tipo split con capacidades de 12,000 a 24,000 BTU. Nuestro equipo profesional garantiza un proceso seguro y eficiente, evitando daños en la unidad y el entorno.</p>
+                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 d-flex">
+                        <div class="card-servicio w-100">
+                          <img src="assets/images/instalacionn2.png" alt="Instalación 36,000 BTU">
+                          <h4>Instalación Básica de Aire Acondicionado 36,000 BTU.</h4>
+                          <p>Servicio de instalación básica de aire acondicionado split de 36,000 BTU. Incluye materiales de fábrica, 10 pies de tubería y requiere una fuente eléctrica 220V a menos de 5 pies. No aplica para desinstalaciones previas ni instalaciones en pisos superiores sin acceso seguro.</p>
+                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 d-flex">
+                        <div class="card-servicio w-100">
+                          <img src="assets/images/instalacionn3.png" alt="Instalación 24,000 BTU">
+                          <h4>Instalación Básica de Aire Acondicionado 24,000 BTU.</h4>
+                          <p>Servicio de instalación básica de aire acondicionado split de 24,000 BTU. Incluye los materiales de fábrica, 10 pies de tubería y requiere una fuente eléctrica 220V a menos de 5 pies. No aplica para desinstalaciones previas ni instalaciones en pisos superiores sin acceso seguro.</p>
+                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="carousel-item">
+                    <div class="row justify-content-center">
+                      <div class="col-12 col-md-4 d-flex mx-auto">
+                        <div class="card-servicio w-100">
+                          <img src="assets/images/mantenimientoo3.png" alt="Instalación base Split">
+                          <h4>Instalación de base Aire Acondicionado Split con base incluida (12K-18K).</h4>
+                          <p>Servicio de instalación de aire acondicionado split con capacidades de 12,000 a 18,000 BTU, incluyendo base para el condensador. Se realiza en ubicaciones de hasta tercer piso, con acceso seguro. Para equipos de 18,000 BTU más grandes, se requiere una base adicional (no incluida).</p>
+                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#serviciosCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#serviciosCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Siguiente</span>
+                </button>
+              </div>
+            </div>
+            <div class="row justify-content-center pt-10">
+              <div class="col-lg-8 text-center">
+                <h5 class="fs-20" style="color: #ffffff;">Conoce nuestras membresias Gold y Silver, <a href="membresias.html" class="action underline" style="color: #2daae1;"> Saber más <i class="bi bi-arrow-right"></i></a> </h5>
+              </div>
+            </div>
+          </section>
+            <!-- Separador visual para mayor espacio entre el carrusel y la siguiente sección -->
+            <section id="catalogo" class="overflow-hidden pt-10">
+              <div class="container">
+                <div class="row align-items-end mb-5">
+                  <div class="col-lg-8 mb-2 mb-lg-0">
+                    <h2 class="fw-bold">Equipos Disponibles</h2>
+                  </div>
+                  <div class="col-lg-4 text-lg-end">
+                    <a href="https://wa.link/or507r" class="underline action" style="color: #2daae1;">Solicita lista completa de precios<i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+                <div class="carousel carousel-visible" data-aos="fade-left">
+                  <div
+                    data-carousel='{"nav": false,"mouseDrag": true, "gutter": 32, "loop": true, "responsive": {"0": {"items": 1}, "768": {"items": 2}, "992": {"items": 2}, "1200": {"items": 3}}}'>
+                    <div>
+                      <div class="product">
+                        <figure class="product-image">
+                          <a href="#!">
+                            <img src="assets/images/products/TGM-AIRE.png" alt="Image" />
+                            <img src="assets/images/products/TGM-CONDEX.png" alt="Image" />
+                          </a>
+                        </figure>
+                        <a class="product-title" href="#!">12,000 BTU TGM Inverter SEER 19</a>
+                      </div>            </div>
+                    <div>
+                      <div class="product">
+                        <figure class="product-image">
+                          <a href="#!">
+                            <img src="assets/images/products/MILEXUS-AIRE.png" alt="Image" />
+                            <img src="assets/images/products/MILEXUS-CONDEX.png" alt="Image" />
+                          </a>
+                        </figure>
+                        <a class="product-title" href="#!">18,000 BTU Milexus Inverter</a>
+                      </div>           
+                     </div>
+                      <div>
+                        <div class="product">
+                         <figure class="product-image">
+                           <a href="#!">
+                             <img src="assets/images/products/NISATO AIRE.webp" alt="Image" />
+                             <img src="assets/images/products/NISATO CONDENSADOR.png" alt="Image" />
+                           </a>
+                         </figure>
+                         <a class="product-title" href="#!">12,000 BTU NISATO</a>
+                       </div>
+                       </div>
+                    <div>
+                      <div class="product">
+                        <figure class="product-image">
+                          <a href="#!">
+                            <img src="assets/images/products/TGM-AIRE.png" alt="Image" />
+                            <img src="assets/images/products/TGM-CONDEX.png" alt="Image" />
+                          </a>
+                        </figure>
+                        <a class="product-title" href="#!">24,000 BTU TGM Inverter SEER 20 </a>
+                      </div>            </div>
+                    <div>
+                      <div class="product">
+                        <figure class="product-image">
+                          <a href="#!">
+                            <img src="assets/images/products/TGM-AIRE.png" alt="Image" />
+                            <img src="assets/images/products/TGM-CONDEX.png" alt="Image" />
+                          </a>
+                        </figure>
+                        <a class="product-title" href="#!">36,000 BTU TGM Inverter</a>
+                      </div>
+                     </div>
+                   </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+            <section class="py-15 py-xl-20">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-lg-10">
+                    <h2 class="text-center mb-5">¿Por qué <span class="fw-bold">elegirnos?</span></h2>
+                    <div class="card">
+                      <div class="card-body p-0">
+                        <div class="row g-0">
+                          <div class="col-md-6 p-4 text-white" style="background-color: #0D4367; margin-bottom: 24px; border-radius: 8px 0 0 8px;">
+                            <h4 class="text-center mb-4">Nosotros</h4>
+                            <ul class="list-unstyled mb-0">
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check2-circle me-2"></i>
+                                <span class="fw-bold">Membresias de mantenimiento</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check2-circle me-2"></i>
+                                <span>Entrega garantizada</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check2-circle me-2"></i>
+                                <span>Servicio de entrega con plataforma elevadora (opcional) - costo adicional</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check2-circle me-2"></i>
+                                <span>Soporte tecnico profesional</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check2-circle me-2"></i>
+                                <span>Reclamaciones de seguro procesadas por nosotros</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check2-circle me-2"></i>
+                                <span>Envío rapido</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check2-circle me-2"></i>
+                                <span>Instalación profesional </span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check2-circle me-2"></i>
+                                <span>Asesoria gratuita</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check2-circle me-2"></i>
+                                <span>Personal profesional y capacitado</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check2-circle me-2"></i>
+                                <span>Manual de uso y cuidado</span>
+                              </li>
+                              <li class="d-flex align-items-center">
+                                <i class="bi bi-check2-circle me-2"></i>
+                                <span>Procesamiento de garantía incluido en todos nuestros productos</span>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="col-md-6 bg-light p-4" style="margin-top: 24px; border-radius: 0 8px 8px 0;">
+                            <h4 class="text-center mb-4">Otras Empresas</h4>
+                            <ul class="list-unstyled mb-0">
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-x-circle me-2 text-danger"></i>
+                                <span>Cobran extremadamente alto por envío y tarifas</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-x-circle me-2 text-danger"></i>
+                                <span>Sin garantía de entrega</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-x-circle me-2 text-danger"></i>
+                                <span>Precios elevados por plataforma elevadora</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-x-circle me-2 text-danger"></i>
+                                <span>Sin servicio de entrega interior</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-x-circle me-2 text-danger"></i>
+                                <span>Cobran extra por procesar reclamos</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-x-circle me-2 text-danger"></i>
+                                <span>Envío lento o productos sin stock</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-x-circle me-2 text-danger"></i>
+                                <span>Sin servicio de instalación</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-x-circle me-2 text-danger"></i>
+                                <span>Sin asesoria gratuita</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-x-circle me-2 text-danger"></i>
+                                <span>Sin soporte técnico</span>
+                              </li>
+                              <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-x-circle me-2 text-danger"></i>
+                                <span>Sin material de apoyo</span>
+                              </li>
+                              <li class="d-flex align-items-center">
+                                <i class="bi bi-x-circle me-2 text-danger"></i>
+                                <span>Sin procesamiento de garantía</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
         
       <!-- Sección de Preguntas Frecuentes (FAQ) -->
       <section id="faq" class="py-15 py-xl-20">
@@ -497,6 +603,8 @@
         </div>
       </section>
 
+
+      
       <section id="contacto" class="py-15 py-xl-20">
         <div class="container">
           <div class="row align-items-center justify-content-between">
