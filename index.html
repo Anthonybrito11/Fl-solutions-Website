@@ -13,7 +13,105 @@
 </head>
 
 <body>
+    <!-- INSERT_YOUR_CODE -->
+    <style>
+      /* Aumentar el tamaño de fuente y paddings en escritorio para mejorar la visibilidad */
+      @media (min-width: 992px) {
+        /* Títulos principales */
+        h2.fw-bold, 
+        section h2.fw-bold, 
+        .display-4, 
+        h3.display-4 {
+          font-size: 2.8rem !important;
+        }
+        /* Subtítulos */
+        h4, h5, .fs-20, section h4, section h5 {
+          font-size: 2rem !important;
+        }
+        /* Texto de párrafos principales */
+        .lead, section p.lead, .text-secondary, section p {
+          font-size: 1.35rem !important;
+        }
+        /* Tarjetas de productos y servicios */
+        .card-servicio h4,
+        .card-body h5 {
+          font-size: 1.5rem !important;
+        }
+        .card-servicio p,
+        .card-body p {
+          font-size: 1.15rem !important;
+        }
+        /* Padding en secciones */
+        section {
+          padding-top: 4.5rem !important;
+          padding-bottom: 4.5rem !important;
+        }
+        /* Carrusel de servicios */
+        .carousel-item .card-servicio {
+          min-height: 420px;
+        }
+        /* Botones principales */
+        .btn, .btn-cotiza {
+          font-size: 1.15rem !important;
+          padding: 0.85rem 2.2rem !important;
+        }
+        /* Modal de políticas */
+        #politicasInstalacionModalContent,
+        #politicasGarantiaModalContent {
+          font-size: 1.7rem !important;
+          line-height: 2.2 !important;
+        }
+        #politicasInstalacionModalContent h2,
+        #politicasGarantiaModalContent h2 {
+          font-size: 2.8rem !important;
+        }
+        #politicasInstalacionModalContent h4,
+        #politicasGarantiaModalContent h4 {
+          font-size: 2.1rem !important;
+        }
+      }
+    </style>
 
+    <style>
+      /* Navbar transparente por defecto */
+      #mainNav {
+        background: transparent;
+        box-shadow: none;
+        transition: background 0.35s cubic-bezier(.4,0,.2,1), box-shadow 0.35s cubic-bezier(.4,0,.2,1);
+      }
+      #mainNav .navbar-brand img {
+        transition: filter 0.35s;
+      }
+      #mainNav .nav-link {
+        color: #fff !important;
+        transition: color 0.35s cubic-bezier(.4,0,.2,1);
+      }
+      #mainNav .navbar-toggler {
+        border-color: rgba(255,255,255,0.7);
+        color: #fff;
+        transition: color 0.35s, border-color 0.35s;
+      }
+      /* Estado scrolled: fondo azul corporativo, sombra, textos blancos */
+      #mainNav.navbar-scrolled {
+        background: #0f4367;
+        box-shadow: 0 4px 18px 0 rgba(15,67,103,0.10);
+        transition: background 0.35s cubic-bezier(.4,0,.2,1), box-shadow 0.35s cubic-bezier(.4,0,.2,1);
+      }
+      #mainNav.navbar-scrolled .nav-link {
+        color: #fff !important;
+        transition: color 0.35s cubic-bezier(.4,0,.2,1);
+      }
+      #mainNav.navbar-scrolled .navbar-toggler {
+        border-color: #fff;
+        color: #fff;
+      }
+      /* Responsive: menú móvil */
+      @media (max-width: 991.98px) {
+        #mainNav .nav-link {
+          color: #fff !important;
+        }
+      }
+    </style>
     <nav id="mainNav" class="navbar navbar-expand-lg navbar-sticky navbar-dark">
         <div class="container">
             <a href="#" class="navbar-brand"><img src="assets/images/logo/logo-fl2.png" alt="Logo"></a>
@@ -46,6 +144,21 @@
             </div>
         </div>
     </nav>
+    <script>
+      // Script para cambiar el fondo del navbar al hacer scroll
+      document.addEventListener("DOMContentLoaded", function() {
+        const navbar = document.getElementById('mainNav');
+        function updateNavbar() {
+          if (window.scrollY > 0) {
+            navbar.classList.add('navbar-scrolled');
+          } else {
+            navbar.classList.remove('navbar-scrolled');
+          }
+        }
+        updateNavbar();
+        window.addEventListener('scroll', updateNavbar);
+      });
+    </script>
 
     <section id="inicio" class="cover overflow-hidden inverted bg-black mb-10">
         <div class="d-flex flex-column min-vh-100 container py-10 level-1">
@@ -113,236 +226,484 @@
       </section>
       
       <!--seccion de servicios-->
-      <section id="servicios" class="pt-3 pb-10 text-white" style="background-color: #163d56;">
-      
-      
-        <div class="container mt-10 level-3">
-
-            <div class="row mb-md-10">
-              <div class="l-md-10 cocol-lg-8">
-                <h2 class="fw-light text-center">Nuestros <span class="fw-bold">Servicios.</span></h2>
-              </div>
+      <section id="servicios" class="pt-3 pb-10 text-white position-relative" style="background: linear-gradient(135deg, #163d56 60%, #1b2a3a 100%); overflow: hidden;">
+        <style>
+          /* Fondo abstracto con patrón sutil */
+          #servicios::before {
+            content: "";
+            position: absolute;
+            top: -80px; left: -80px; right: -80px; bottom: -80px;
+            background: url('assets/images/pattern-abstract.svg') repeat;
+            opacity: 0.07;
+            z-index: 0;
+            pointer-events: none;
+          }
+          #servicios {
+            position: relative;
+            z-index: 1;
+          }
+          .servicios-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+          }
+          .servicios-title .highlight {
+            color: #2daae1;
+            border-bottom: 4px solid #2daae1;
+            padding-bottom: 2px;
+            display: inline-block;
+            border-radius: 2px;
+          }
+          /* Carrusel */
+          #serviciosCarousel {
+            margin-top: 2.5rem;
+          }
+          .carousel-inner {
+            padding-bottom: 32px;
+          }
+          .card-servicio {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 4px 32px rgba(22,61,86,0.10), 0 1.5px 8px rgba(45,170,225,0.07);
+            padding: 32px 24px 36px 24px;
+            margin: 0 24px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s, transform 0.25s;
+            border: none;
+            min-height: 440px;
+            position: relative;
+            overflow: visible;
+            animation: fadeInUp 0.7s cubic-bezier(.4,0,.2,1);
+          }
+          .card-servicio:hover {
+            box-shadow: 0 8px 40px 0 rgba(45,170,225,0.18), 0 2px 16px rgba(22,61,86,0.10);
+            transform: translateY(-8px) scale(1.025);
+          }
+          .servicio-img-wrapper {
+            position: relative;
+            margin-bottom: 18px;
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .servicio-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #eaf6fb;
+            background: #f7fafc;
+            box-shadow: 0 2px 12px rgba(45,170,225,0.10);
+            transition: box-shadow 0.3s, transform 0.3s;
+            z-index: 1;
+          }
+          .card-servicio:hover .servicio-img {
+            box-shadow: 0 0 0 6px #e3f4fc, 0 4px 24px #2daae1a0;
+            transform: scale(1.07);
+          }
+          .servicio-icon {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            background: #2daae1;
+            color: #fff;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 2px 8px rgba(45,170,225,0.18);
+            border: 3px solid #fff;
+            z-index: 2;
+          }
+          .card-servicio h4 {
+            color: #163d56;
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            min-height: 48px;
+            text-align: center;
+            letter-spacing: -0.5px;
+            border-bottom: 2.5px solid #2daae1;
+            display: inline-block;
+            padding-bottom: 2px;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+          }
+          .card-servicio p {
+            color: #4a5a6a;
+            font-size: 1.08rem;
+            margin-bottom: 0;
+            min-height: 70px;
+            text-align: center;
+            flex: 1 1 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.7;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+          }
+          .card-servicio .btn-cotiza {
+            background: linear-gradient(90deg, #2daae1 60%, #1b7ca6 100%);
+            color: #fff !important;
+            border: none;
+            border-radius: 999px !important;
+            font-weight: 700;
+            padding: 14px 0;
+            box-shadow: 0 2px 16px #2daae13a;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+            text-transform: none;
+            font-size: 1.13rem;
+            letter-spacing: 0.5px;
+            width: 100%;
+            margin-top: 28px;
+            margin-bottom: 0;
+            align-self: stretch;
+            outline: none;
+          }
+          .card-servicio .btn-cotiza:hover, .card-servicio .btn-cotiza:focus {
+            background: linear-gradient(90deg, #1b7ca6 60%, #2daae1 100%);
+            color: #fff !important;
+            box-shadow: 0 4px 24px #2daae1a0;
+            transform: translateY(-2px) scale(1.03);
+          }
+          /* Carousel controls */
+          #serviciosCarousel .carousel-control-prev,
+          #serviciosCarousel .carousel-control-next {
+            width: 56px;
+            height: 56px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            background: rgba(255,255,255,0.85);
+            border-radius: 50%;
+            box-shadow: 0 2px 12px rgba(22,61,86,0.10);
+            border: 2px solid #eaf6fb;
+            transition: background 0.2s, box-shadow 0.2s;
+          }
+          #serviciosCarousel .carousel-control-prev:hover,
+          #serviciosCarousel .carousel-control-next:hover {
+            background: #2daae1;
+            box-shadow: 0 4px 24px #2daae1a0;
+          }
+          #serviciosCarousel .carousel-control-prev {
+            left: -70px;
+          }
+          #serviciosCarousel .carousel-control-next {
+            right: -70px;
+          }
+          @media (max-width: 1200px) {
+            #serviciosCarousel .carousel-control-prev { left: -30px; }
+            #serviciosCarousel .carousel-control-next { right: -30px; }
+          }
+          @media (max-width: 767px) {
+            #serviciosCarousel .carousel-control-prev,
+            #serviciosCarousel .carousel-control-next {
+              left: 0;
+              right: 0;
+              width: 44px;
+              height: 44px;
+            }
+            #serviciosCarousel .carousel-control-prev { left: 0; }
+            #serviciosCarousel .carousel-control-next { right: 0; }
+          }
+          /* Carousel indicators */
+          .carousel-indicators-custom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-top: 18px;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 2;
+          }
+          .carousel-indicators-custom button {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #eaf6fb;
+            border: none;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 4px #2daae13a;
+            margin: 0 2px;
+            outline: none;
+          }
+          .carousel-indicators-custom button.active {
+            background: #2daae1;
+            box-shadow: 0 2px 8px #2daae1a0;
+            width: 22px;
+            height: 22px;
+            border: 2.5px solid #fff;
+          }
+          /* Responsive cards */
+          @media (max-width: 991px) {
+            .card-servicio {
+              margin: 0 8px 32px 8px;
+              min-height: unset;
+            }
+          }
+          @media (max-width: 767px) {
+            .carousel-inner {
+              display: flex;
+              flex-direction: column;
+              gap: 32px;
+            }
+            .carousel-item {
+              display: block !important;
+              opacity: 1 !important;
+              transition: none !important;
+            }
+            .card-servicio {
+              margin: 0 0 32px 0;
+              min-height: unset;
+              width: 100%;
+              max-width: 420px;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            #serviciosCarousel .carousel-control-prev,
+            #serviciosCarousel .carousel-control-next {
+              display: none;
+            }
+            .carousel-indicators-custom {
+              margin-top: 0;
+              margin-bottom: 18px;
+            }
+          }
+          /* Animación de fade-in/slide-up */
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+          }
+          /* Banner membresías */
+          .banner-membresias {
+            background: linear-gradient(90deg, #eaf6fb 60%, #f7fafc 100%);
+            border-radius: 20px;
+            box-shadow: 0 2px 16px #2daae13a;
+            padding: 32px 24px;
+            margin-top: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+          }
+          .banner-membresias-text {
+            color: #163d56;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            letter-spacing: -0.5px;
+          }
+          .banner-membresias-btn {
+            background: linear-gradient(90deg, #2daae1 60%, #1b7ca6 100%);
+            color: #fff !important;
+            border: none;
+            border-radius: 999px !important;
+            font-weight: 700;
+            padding: 12px 36px;
+            font-size: 1.13rem;
+            box-shadow: 0 2px 16px #2daae13a;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+            text-transform: none;
+            margin-left: 12px;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+          }
+          .banner-membresias-btn:hover, .banner-membresias-btn:focus {
+            background: linear-gradient(90deg, #1b7ca6 60%, #2daae1 100%);
+            box-shadow: 0 4px 24px #2daae1a0;
+            transform: translateY(-2px) scale(1.03);
+            color: #fff !important;
+          }
+        </style>
+        <div class="container mt-10 level-3 position-relative" style="z-index:2;">
+          <div class="row mb-md-10">
+            <div class="col-12">
+              <h2 class="servicios-title">Nuestros <span class="highlight">Servicios</span></h2>
             </div>
+          </div>
+          <div class="position-relative">
+            <div id="serviciosCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="hover">
+              <div class="carousel-inner">
 
-            <!-- Carrusel de servicios con tarjetas, visualizando 3 a la vez, autoshow cada 2 segundos -->
-            <style>
-              .card-servicio {
-                background: #163d56;
-                border-radius: 16px;
-                box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-                padding: 24px 18px 28px 18px;
-                margin: 0 8px;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                transition: box-shadow 0.2s;
-                border: 1px solid #244e6b;
-                min-height: 480px;
-              }
-              .card-servicio:hover {
-                box-shadow: 0 4px 24px rgba(45,170,225,0.15);
-                border-color: #2daae1;
-              }
-              .card-servicio img {
-                width: 120px;
-                height: 120px;
-                object-fit: contain;
-                margin-bottom: 16px;
-              }
-              .card-servicio h4 {
-                color: #fff;
-                font-weight: 600;
-                margin-bottom: 10px;
-                min-height: 48px;
-                text-align: center;
-              }
-              .card-servicio p {
-                color: #c6c6c6;
-                font-size: 15px;
-                margin-bottom: 0;
-                min-height: 90px;
-                text-align: center;
-                flex: 1 1 auto;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              }
-              .card-servicio .btn-cotiza {
-                background: #2daae1;
-                color: #fff !important;
-                border: none;
-                border-radius: 6px !important;
-                font-weight: 600;
-                padding: 10px 22px;
-                box-shadow: none !important;
-                transition: background 0.2s, color 0.2s;
-                text-transform: none;
-                font-size: 16px;
-                letter-spacing: 0.5px;
-                width: 100%;
-                margin-top: 24px;
-                margin-bottom: 0;
-                align-self: stretch;
-              }
-              .card-servicio .btn-cotiza:hover, .card-servicio .btn-cotiza:focus {
-                background: #1b7ca6;
-                color: #fff !important;
-              }
-              @media (max-width: 767px) {
-                .card-servicio {
-                  margin-bottom: 24px;
-                  min-height: unset;
-                }
-              }
-              /* Separar las flechas del carrusel */
-              #serviciosCarousel .carousel-control-prev,
-              #serviciosCarousel .carousel-control-next {
-                width: 5%;
-                min-width: 48px;
-                max-width: 60px;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 2;
-              }
-              #serviciosCarousel .carousel-control-prev {
-                left: -60px;
-              }
-              #serviciosCarousel .carousel-control-next {
-                right: -60px;
-              }
-              @media (max-width: 991px) {
-                #serviciosCarousel .carousel-control-prev {
-                  left: -30px;
-                }
-                #serviciosCarousel .carousel-control-next {
-                  right: -30px;
-                }
-              }
-              @media (max-width: 767px) {
-                #serviciosCarousel .carousel-control-prev,
-                #serviciosCarousel .carousel-control-next {
-                  left: 0;
-                  right: 0;
-                  width: 10%;
-                }
-                #serviciosCarousel .carousel-control-prev {
-                  left: 0;
-                }
-                #serviciosCarousel .carousel-control-next {
-                  right: 0;
-                }
-              }
-              /* Espaciado extra entre el carrusel y la siguiente sección */
-              .separador-carrusel {
-                margin-top: 140px;
-                margin-bottom: 140px;
-              }
-              @media (max-width: 991px) {
-                .separador-carrusel {
-                  margin-top: 80px;
-                  margin-bottom: 80px;
-                }
-              }
-              @media (max-width: 767px) {
-                .separador-carrusel {
-                  margin-top: 48px;
-                  margin-bottom: 48px;
-                }
-              }
-            </style>
-            <div class="position-relative">
-              <div id="serviciosCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-                <div class="carousel-inner">
-
-                  <div class="carousel-item active">
-                    <div class="row justify-content-center">
-                      <div class="col-12 col-md-4 d-flex">
-                        <div class="card-servicio w-100">
-                          <img src="assets/images/instalacionnn.png" alt="Instalación básica">
-                          <h4>Instalación Básica de Aire Acondicionado 12K-18K BTU.</h4>
-                          <p>Nuestro servicio de instalación básica de aire acondicionado tipo split (12,000 y 18,000 BTU) incluye los materiales provistos por el fabricante (los que vienen con el equipo), hasta 10 pies de tubería e instalación eléctrica siempre que haya una fuente de 220V ubicada a menos de 5 pies del lugar de instalación. Este servicio no incluye desinstalaciones previas ni instalaciones en pisos superiores sin acceso seguro.</p>
-                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
+                <div class="carousel-item active">
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-md-4 d-flex">
+                      <div class="card-servicio w-100">
+                        <div class="servicio-img-wrapper">
+                          <img src="assets/images/instalacionnn.png" class="servicio-img" alt="Instalación básica">
+                          <span class="servicio-icon"><i class="bi bi-tools"></i></span>
                         </div>
+                        <h4>Instalación Split 12K-18K BTU</h4>
+                        <p>Instalamos tu aire split (12K/18K BTU) con materiales originales y hasta 10 pies de tubería. Rápido, seguro y sin complicaciones.</p>
+                        <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Solicitar cotización</a>
                       </div>
-                      <div class="col-12 col-md-4 d-flex">
-                        <div class="card-servicio w-100">
-                          <img src="assets/images/mantenimientoo.png" alt="Diagnóstico y Evaluación">
-                          <h4>Diagnóstico y Evaluación de Aire Acondicionado.</h4>
-                          <p>Nuestro servicio de diagnóstico y evaluación de aire acondicionado permite identificar problemas que afecten su rendimiento. Un técnico especializado analizará tu equipo para ofrecerte un informe detallado y recomendaciones. Aplicable solo a nuestros aires acondicionados.</p>
-                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex">
+                      <div class="card-servicio w-100">
+                        <div class="servicio-img-wrapper">
+                          <img src="assets/images/mantenimientoo.png" class="servicio-img" alt="Diagnóstico y Evaluación">
+                          <span class="servicio-icon"><i class="bi bi-thermometer-snow"></i></span>
                         </div>
+                        <h4>Diagnóstico Profesional</h4>
+                        <p>Detectamos y resolvemos fallas en tu aire acondicionado. Informe claro y recomendaciones de expertos.</p>
+                        <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Solicitar diagnóstico</a>
                       </div>
-                      <div class="col-12 col-md-4 d-flex">
-                        <div class="card-servicio w-100">
-                          <img src="assets/images/mantenimientoo2.png" alt="Mantenimiento Airmax y Gree">
-                          <h4>Mantenimiento de Aire Acondicionado Airmax y Gree.</h4>
-                          <p>Servicio de mantenimiento de aire acondicionado para equipos Airmax y Gree de 12,000 BTU, 18,000 BTU y 24,000 BTU. Nuestro equipo técnico garantiza una limpieza profunda y revisión completa para optimizar el rendimiento y prolongar la vida útil de tu equipo.</p>
-                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex">
+                      <div class="card-servicio w-100">
+                        <div class="servicio-img-wrapper">
+                          <img src="assets/images/mantenimientoo2.png" class="servicio-img" alt="Mantenimiento Airmax y Gree">
+                          <span class="servicio-icon"><i class="bi bi-droplet-half"></i></span>
                         </div>
+                        <h4>Mantenimiento Preventivo</h4>
+                        <p>Limpieza y revisión profunda para equipos de 12K, 18K y 24K BTU. Más eficiencia y vida útil para tu aire.</p>
+                        <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Agendar mantenimiento</a>
                       </div>
                     </div>
                   </div>
-
-                  <div class="carousel-item">
-                    <div class="row justify-content-center">
-                      <div class="col-12 col-md-4 d-flex">
-                        <div class="card-servicio w-100">
-                          <img src="assets/images/instalacionn.png" alt="Desinstalación Split">
-                          <h4>Servicio de Desinstalación de Aire Acondicionado Split.</h4>
-                          <p>Ofrecemos servicio de desinstalación de aire acondicionado tipo split con capacidades de 12,000 a 24,000 BTU. Nuestro equipo profesional garantiza un proceso seguro y eficiente, evitando daños en la unidad y el entorno.</p>
-                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-4 d-flex">
-                        <div class="card-servicio w-100">
-                          <img src="assets/images/instalacionn2.png" alt="Instalación 36,000 BTU">
-                          <h4>Instalación Básica de Aire Acondicionado 36,000 BTU.</h4>
-                          <p>Servicio de instalación básica de aire acondicionado split de 36,000 BTU. Incluye materiales de fábrica, 10 pies de tubería y requiere una fuente eléctrica 220V a menos de 5 pies. No aplica para desinstalaciones previas ni instalaciones en pisos superiores sin acceso seguro.</p>
-                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-4 d-flex">
-                        <div class="card-servicio w-100">
-                          <img src="assets/images/instalacionn3.png" alt="Instalación 24,000 BTU">
-                          <h4>Instalación Básica de Aire Acondicionado 24,000 BTU.</h4>
-                          <p>Servicio de instalación básica de aire acondicionado split de 24,000 BTU. Incluye los materiales de fábrica, 10 pies de tubería y requiere una fuente eléctrica 220V a menos de 5 pies. No aplica para desinstalaciones previas ni instalaciones en pisos superiores sin acceso seguro.</p>
-                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="carousel-item">
-                    <div class="row justify-content-center">
-                      <div class="col-12 col-md-4 d-flex mx-auto">
-                        <div class="card-servicio w-100">
-                          <img src="assets/images/mantenimientoo3.png" alt="Instalación base Split">
-                          <h4>Instalación de base Aire Acondicionado Split con base incluida (12K-18K).</h4>
-                          <p>Servicio de instalación de aire acondicionado split con capacidades de 12,000 a 18,000 BTU, incluyendo base para el condensador. Se realiza en ubicaciones de hasta tercer piso, con acceso seguro. Para equipos de 18,000 BTU más grandes, se requiere una base adicional (no incluida).</p>
-                          <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Pide tu cotización ahora!</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#serviciosCarousel" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Anterior</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#serviciosCarousel" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Siguiente</span>
-                </button>
+
+                <div class="carousel-item">
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-md-4 d-flex">
+                      <div class="card-servicio w-100">
+                        <div class="servicio-img-wrapper">
+                          <img src="assets/images/instalacionn.png" class="servicio-img" alt="Desinstalación Split">
+                          <span class="servicio-icon"><i class="bi bi-arrow-repeat"></i></span>
+                        </div>
+                        <h4>Desinstalación Split</h4>
+                        <p>Retiro seguro de tu aire split (12K-24K BTU) por técnicos certificados. Sin daños ni riesgos.</p>
+                        <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Solicitar servicio</a>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex">
+                      <div class="card-servicio w-100">
+                        <div class="servicio-img-wrapper">
+                          <img src="assets/images/instalacionn2.png" class="servicio-img" alt="Instalación 36,000 BTU">
+                          <span class="servicio-icon"><i class="bi bi-tools"></i></span>
+                        </div>
+                        <h4>Instalación Split 36K BTU</h4>
+                        <p>Instalación profesional de aire split 36K BTU. Incluye materiales originales y conexión eléctrica.</p>
+                        <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Solicitar cotización</a>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex">
+                      <div class="card-servicio w-100">
+                        <div class="servicio-img-wrapper">
+                          <img src="assets/images/instalacionn3.png" class="servicio-img" alt="Instalación 24,000 BTU">
+                          <span class="servicio-icon"><i class="bi bi-tools"></i></span>
+                        </div>
+                        <h4>Instalación Split 24K BTU</h4>
+                        <p>Montaje de aire split 24K BTU con materiales de fábrica y hasta 10 pies de tubería. Garantía total.</p>
+                        <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Solicitar cotización</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-md-4 d-flex mx-auto">
+                      <div class="card-servicio w-100">
+                        <div class="servicio-img-wrapper">
+                          <img src="assets/images/mantenimientoo3.png" class="servicio-img" alt="Instalación base Split">
+                          <span class="servicio-icon"><i class="bi bi-box"></i></span>
+                        </div>
+                        <h4>Instalación con Base Split</h4>
+                        <p>Instalamos tu aire split (12K-18K BTU) con base para condensador incluida. Seguridad y soporte garantizados.</p>
+                        <a href="https://wa.link/gyoj31" class="btn btn-cotiza">Solicitar cotización</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- Custom Carousel Indicators -->
+              <div class="carousel-indicators-custom mt-3">
+                <button type="button" data-bs-target="#serviciosCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#serviciosCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#serviciosCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#serviciosCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#serviciosCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
+            </div>
+          </div>
+          <!-- Banner Membresías Mejorado -->
+          <div class="row justify-content-center pt-10">
+            <div class="col-12 col-lg-10">
+              <div class="banner-membresias mt-4">
+                <span class="banner-membresias-text">
+                  ¿Quieres atención preferencial y beneficios exclusivos? Descubre nuestras membresías <b>Gold</b> y <b>Silver</b>.
+                </span>
+                <a href="membresias.html" class="banner-membresias-btn">
+                  Saber más <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
-            <div class="row justify-content-center pt-10">
-              <div class="col-lg-8 text-center">
-                <h5 class="fs-20" style="color: #ffffff;">Conoce nuestras membresias Gold y Silver, <a href="membresias.html" class="action underline" style="color: #2daae1;"> Saber más <i class="bi bi-arrow-right"></i></a> </h5>
-              </div>
-            </div>
-          </section>
+          </div>
+        </div>
+        <!-- Animación de fade-in para las tarjetas al cambiar de slide -->
+        <script>
+          // Fade-in/slide-up animation on carousel slide
+          document.addEventListener('DOMContentLoaded', function() {
+            var carousel = document.getElementById('serviciosCarousel');
+            if (carousel) {
+              carousel.addEventListener('slide.bs.carousel', function (e) {
+                var next = e.relatedTarget;
+                if (next) {
+                  var cards = next.querySelectorAll('.card-servicio');
+                  cards.forEach(function(card, idx) {
+                    card.style.animation = 'none';
+                    // trigger reflow
+                    void card.offsetWidth;
+                    card.style.animation = 'fadeInUp 0.7s cubic-bezier(.4,0,.2,1)';
+                  });
+                }
+              });
+            }
+            // Activar indicador custom
+            var indicators = document.querySelectorAll('.carousel-indicators-custom button');
+            var carouselEl = document.getElementById('serviciosCarousel');
+            if (carouselEl && indicators.length) {
+              carouselEl.addEventListener('slid.bs.carousel', function (e) {
+                indicators.forEach(function(btn, idx) {
+                  btn.classList.toggle('active', idx === e.to);
+                });
+              });
+              indicators.forEach(function(btn, idx) {
+                btn.addEventListener('click', function() {
+                  var carousel = bootstrap.Carousel.getOrCreateInstance(carouselEl);
+                  carousel.to(idx);
+                });
+              });
+            }
+          });
+        </script>
+      </section>
+          
             <!-- Separador visual para mayor espacio entre el carrusel y la siguiente sección -->
             <section id="catalogo" class="overflow-hidden pt-10">
               <div class="container">
@@ -415,7 +776,354 @@
                 </div>
               </div>
             </section>
-            
+            <section id="productos-complementarios" class="py-15 bg-white">
+              <div class="container">
+                <div class="row justify-content-center mb-5">
+                  <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3" style="color: #0f4367;">Productos Complementarios</h2>
+                    <p class="lead text-secondary">Optimiza tu ambiente con soluciones inteligentes y seguras.</p>
+                  </div>
+                </div>
+                <style>
+                  :root {
+                    --azul-corporativo: #0f4367;
+                    --azul-hover: #2daae1;
+                    --gris-claro: #f5f7fa;
+                    --gris-medio: #e3e8ee;
+                    --blanco: #fff;
+                  }
+                  .grid-productos-complementarios {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 32px;
+                    justify-content: center;
+                  }
+                  .tarjeta-complementaria {
+                    background: var(--blanco);
+                    border-radius: 1.5rem;
+                    box-shadow: 0 4px 24px 0 rgba(15,67,103,0.10);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding: 2.5rem 2rem 2.2rem 2rem;
+                    min-width: 270px;
+                    max-width: 320px;
+                    width: 100%;
+                    min-height: 420px;
+                    margin: 0 auto;
+                    text-align: center;
+                    opacity: 0;
+                    transform: translateY(30px);
+                    animation: fadeInTarjeta 0.8s ease forwards;
+                  }
+                  .tarjeta-complementaria:nth-child(1) { animation-delay: 0.1s; }
+                  .tarjeta-complementaria:nth-child(2) { animation-delay: 0.2s; }
+                  .tarjeta-complementaria:nth-child(3) { animation-delay: 0.3s; }
+                  .tarjeta-complementaria:nth-child(4) { animation-delay: 0.4s; }
+                  @keyframes fadeInTarjeta {
+                    to {
+                      opacity: 1;
+                      transform: translateY(0);
+                    }
+                  }
+                  .tarjeta-complementaria:hover {
+                    box-shadow: 0 8px 32px 0 rgba(15,67,103,0.18);
+                    transform: translateY(-6px) scale(1.025);
+                    transition: box-shadow 0.2s, transform 0.2s;
+                  }
+                  .tarjeta-complementaria img {
+                    width: 120px;
+                    height: 120px;
+                    object-fit: cover;
+                    border-radius: 20px;
+                    margin-bottom: 1.5rem;
+                    background: var(--gris-claro);
+                    box-shadow: 0 2px 8px 0 rgba(15,67,103,0.06);
+                  }
+                  .tarjeta-complementaria h5 {
+                    font-size: 1.45rem;
+                    font-weight: 800;
+                    color: var(--azul-corporativo);
+                    margin-bottom: 1.1rem;
+                    letter-spacing: -0.5px;
+                  }
+                  .tarjeta-complementaria p {
+                    font-size: 1.05rem;
+                    color: #4a4a4a;
+                    margin-bottom: 1.7rem;
+                    text-align: center;
+                  }
+                  .btn-comprar {
+                    display: inline-block;
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    padding: 0.85rem 2.2rem;
+                    border-radius: 2rem;
+                    background: var(--azul-corporativo);
+                    color: #fff;
+                    border: none;
+                    box-shadow: 0 2px 8px 0 rgba(15,67,103,0.10);
+                    transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+                    text-decoration: none;
+                  }
+                  .btn-comprar:hover, .btn-comprar:focus {
+                    background: var(--azul-hover);
+                    color: #fff;
+                    box-shadow: 0 4px 16px 0 rgba(45,170,225,0.18);
+                    transform: translateY(-2px) scale(1.04);
+                  }
+                  @media (max-width: 991.98px) {
+                    .grid-productos-complementarios {
+                      gap: 24px;
+                    }
+                    .tarjeta-complementaria {
+                      min-width: 220px;
+                      max-width: 360px;
+                      padding: 2rem 1.2rem 1.7rem 1.2rem;
+                      min-height: 380px;
+                    }
+                  }
+                  @media (max-width: 767.98px) {
+                    .grid-productos-complementarios {
+                      flex-direction: column;
+                      gap: 24px;
+                    }
+                    .tarjeta-complementaria {
+                      max-width: 100%;
+                      min-width: unset;
+                      min-height: 340px;
+                      padding: 1.5rem 0.7rem 1.2rem 0.7rem;
+                    }
+                  }
+                  @media (max-width: 575.98px) {
+                    .tarjeta-complementaria {
+                      padding: 1.2rem 0.3rem 1rem 0.3rem;
+                    }
+                  }
+                </style>
+                <div class="grid-productos-complementarios">
+                  <div class="tarjeta-complementaria">
+                    <img src="assets/images/termostatointe.png" alt="Termostato Inteligente">
+                    <h5>Termostatos Inteligentes</h5>
+                    <p>Controla la temperatura desde tu celular y ahorra energía.</p>
+                    <a href="https://wa.link/gyoj31" class="btn-comprar mt-2">Comprar</a>
+                  </div>
+                  <div class="tarjeta-complementaria">
+                    <img src="assets/images/purificador de aire.png" alt="Purificador de Aire">
+                    <h5>Purificadores de Aire</h5>
+                    <p>Mejora la calidad del aire y respira más saludable.</p>
+                    <a href="https://wa.link/gyoj31" class="btn-comprar mt-2">Comprar</a>
+                  </div>
+                  <div class="tarjeta-complementaria">
+                    <img src="assets/images/selladores termicos.png" alt="Selladores y Aislamientos Térmicos">
+                    <h5>Selladores y Aislamientos</h5>
+                    <p>Mantén la temperatura y reduce el consumo eléctrico.</p>
+                    <a href="https://wa.link/gyoj31" class="btn-comprar mt-2">Comprar</a>
+                  </div>
+                  <div class="tarjeta-complementaria">
+                    <img src="assets/images/protectores de voltaje.png" alt="Protector de Voltaje">
+                    <h5>Protectores y Reguladores</h5>
+                    <p>Evita daños eléctricos y protege tus equipos.</p>
+                    <a href="https://wa.link/gyoj31" class="btn-comprar mt-2">Comprar</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="como-obtener-servicio" class="py-15" style="background-color: #0f4367;">
+              <div class="container">
+                <div class="row justify-content-center mb-5">
+                  <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3" style="color: #fff;">¿Cómo obtener nuestros servicios?</h2>
+                    <p class="lead" style="color: #fff;">Sigue estos sencillos pasos para disfrutar de todos nuestros servicios y productos.</p>
+                  </div>
+                </div>
+                <style>
+                  /* Paleta de colores sugerida */
+                  :root {
+                    --azul-corporativo: #0f4367;
+                    --azul-primario: #2daae1;
+                    --azul-oscuro: #0d2c47;
+                    --gris-claro: #f5f7fa;
+                    --gris-medio: #e3e8ee;
+                    --blanco: #fff;
+                  }
+                  .section-pasos-servicio {
+                    background: var(--gris-claro);
+                    padding-top: 64px;
+                    padding-bottom: 64px;
+                  }
+                  .pasos-titulo {
+                    color: var(--azul-corporativo);
+                    font-weight: 800;
+                    font-size: 2.5rem;
+                    margin-bottom: 0.5rem;
+                    margin-top: 0;
+                    letter-spacing: -1px;
+                  }
+                  .pasos-subtitulo {
+                    color: var(--azul-oscuro);
+                    font-size: 1.25rem;
+                    margin-bottom: 2.5rem;
+                    margin-top: 0.5rem;
+                    font-weight: 500;
+                  }
+                  .pasos-row {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 32px;
+                    justify-content: center;
+                  }
+                  .paso-card {
+                    background: var(--blanco);
+                    border-radius: 20px;
+                    box-shadow: 0 4px 24px 0 rgba(15, 67, 103, 0.10);
+                    padding: 32px 24px 28px 24px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    min-width: 220px;
+                    max-width: 320px;
+                    flex: 1 1 220px;
+                    transition: transform 0.2s, box-shadow 0.2s;
+                    opacity: 0;
+                    transform: translateY(40px);
+                    /* Para animación */
+                  }
+                  .paso-card.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+                  }
+                  .paso-numero {
+                    width: 64px;
+                    height: 64px;
+                    background: linear-gradient(135deg, var(--azul-primario) 60%, var(--azul-corporativo) 100%);
+                    color: var(--blanco);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 2.2rem;
+                    font-weight: 800;
+                    margin-bottom: 18px;
+                    box-shadow: 0 2px 8px 0 rgba(45, 170, 225, 0.10);
+                    border: 4px solid var(--gris-claro);
+                  }
+                  .paso-titulo {
+                    color: var(--azul-corporativo);
+                    font-size: 1.15rem;
+                    font-weight: 700;
+                    margin-bottom: 10px;
+                    text-align: center;
+                  }
+                  .paso-descripcion {
+                    color: var(--azul-oscuro);
+                    font-size: 1rem;
+                    text-align: justify;
+                    line-height: 1.6;
+                    margin-bottom: 0;
+                  }
+                  .pasos-boton {
+                    margin-top: 48px;
+                    display: flex;
+                    justify-content: center;
+                  }
+                  .btn-pasos {
+                    background: linear-gradient(90deg, var(--azul-primario) 60%, var(--azul-corporativo) 100%);
+                    color: var(--blanco);
+                    font-size: 1.15rem;
+                    font-weight: 700;
+                    padding: 18px 48px;
+                    border: none;
+                    border-radius: 32px;
+                    box-shadow: 0 2px 12px 0 rgba(45, 170, 225, 0.10);
+                    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+                  }
+                  .btn-pasos:hover, .btn-pasos:focus {
+                    background: linear-gradient(90deg, var(--azul-corporativo) 60%, var(--azul-primario) 100%);
+                    color: var(--blanco);
+                    transform: translateY(-2px) scale(1.03);
+                    box-shadow: 0 6px 24px 0 rgba(45, 170, 225, 0.18);
+                  }
+                  @media (max-width: 991.98px) {
+                    .pasos-row {
+                      flex-direction: column;
+                      gap: 28px;
+                    }
+                    .paso-card {
+                      max-width: 100%;
+                      min-width: 0;
+                    }
+                  }
+                  @media (max-width: 575.98px) {
+                    .section-pasos-servicio {
+                      padding-top: 36px;
+                      padding-bottom: 36px;
+                    }
+                    .pasos-titulo {
+                      font-size: 2rem;
+                    }
+                    .pasos-subtitulo {
+                      font-size: 1.05rem;
+                    }
+                    .paso-card {
+                      padding: 22px 12px 18px 12px;
+                    }
+                    .paso-numero {
+                      width: 48px;
+                      height: 48px;
+                      font-size: 1.4rem;
+                    }
+                  }
+                </style>
+                <section class="section-pasos-servicio">
+                  <div class="container">
+                    <div class="row justify-content-center mb-5">
+                      <div class="col-lg-8 text-center">
+                        <h2 class="pasos-titulo">¿Cómo obtener nuestros servicios?</h2>
+                        <p class="pasos-subtitulo">Sigue estos sencillos pasos para disfrutar de todos nuestros servicios y productos.</p>
+                      </div>
+                    </div>
+                    <div class="pasos-row" id="pasos-animados">
+                      <div class="paso-card">
+                        <div class="paso-numero">1</div>
+                        <div class="paso-titulo">Elige tu producto o servicio</div>
+                        <div class="paso-descripcion">Selecciona el producto o servicio que deseas adquirir.</div>
+                      </div>
+                      <div class="paso-card">
+                        <div class="paso-numero">2</div>
+                        <div class="paso-titulo">Contacta a nuestro equipo</div>
+                        <div class="paso-descripcion">Al lado de cada producto o servicio, hay un botón para contactar a nuestro equipo. Nuestros asesores profesionales estarán más que encantados de ayudarte.</div>
+                      </div>
+                      <div class="paso-card">
+                        <div class="paso-numero">3</div>
+                        <div class="paso-titulo">Recibe asesoría</div>
+                        <div class="paso-descripcion">Te orientamos sobre la mejor solución y/o producto y te enviamos una cotización personalizada sin compromiso.</div>
+                      </div>
+                      <div class="paso-card">
+                        <div class="paso-numero">4</div>
+                        <div class="paso-titulo">¡Disfruta el resultado!</div>
+                        <div class="paso-descripcion">Recibe el servicio solicitado con garantía, atención personalizada y soporte postventa. Si tienes alguna duda, no dudes en contactarnos.</div>
+                      </div>
+                    </div>
+                    <div class="pasos-boton">
+                      <a href="https://api.whatsapp.com/send?phone=18494011905" class="btn btn-pasos">Solicita tu servicio o producto ahora</a>
+                    </div>
+                  </div>
+                </section>
+                <script>
+                  // Animación de fade-in/slide-up para los pasos
+                  document.addEventListener("DOMContentLoaded", function() {
+                    const cards = document.querySelectorAll('#pasos-animados .paso-card');
+                    cards.forEach((card, i) => {
+                      setTimeout(() => {
+                        card.classList.add('visible');
+                      }, 200 + i * 180);
+                    });
+                  });
+                </script>
+            </section>
             <section class="py-15 py-xl-20">
               <div class="container">
                 <div class="row justify-content-center">
@@ -726,6 +1434,460 @@
       <div class="row g-0 g-lg-6 text-secondary">
         <div class="col-lg-6 text-lg-end order-lg-2">
           <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="#" class="text-reset" id="politicasSeguridadLink" style="cursor:pointer;">Políticas de seguridad de ventas digitales</a>
+            </li>
+            <div id="politicasSeguridadModal" style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:#0f4367; font-family:inherit; overflow-y:auto;">
+              <div style="width:100vw; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0;">
+                <div id="politicasSeguridadModalContent"
+                  style="width:100vw; max-width:100vw; min-height:100vh; background:#0f4367; color:#fff; border-radius:0; box-shadow:none; padding:64px 8vw 48px 8vw; position:relative; font-size:1.5rem; line-height:2;">
+                  <button id="closePoliticasSeguridadModal" style="position:absolute; top:32px; right:48px; background:none; border:none; color:#fff; font-size:3rem; cursor:pointer; line-height:1;">&times;</button>
+                  <h2 style="font-weight:bold; margin-bottom:32px; font-size:2.5rem;">Políticas de Seguridad en Ventas Digitales</h2>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Compromiso con la Protección de Datos Personales</h4>
+                  <p style="margin-bottom:24px;">
+                    FL Solutions Services SRL se compromete a garantizar la seguridad y confidencialidad de la información personal proporcionada por nuestros clientes durante el proceso de compra en línea. Para ello, implementamos las siguientes medidas:
+                  </p>
+                  <ul style="margin-bottom:24px; padding-left:32px;">
+                    <li style="margin-bottom:12px;">No almacenamos información de tarjetas de crédito: Los datos de pago no son almacenados en nuestros sistemas.</li>
+                    <li style="margin-bottom:12px;">Transacciones seguras: Todas las transacciones se procesan a través de la plataforma de pagos Azul, que cumple con los estándares de seguridad más exigentes, asegurando la confidencialidad de los datos suministrados.</li>
+                    <li style="margin-bottom:12px;">Certificación de seguridad: Contamos con un certificado de seguridad SSL que cifra la información transmitida, protegiendo los datos personales de nuestros clientes.</li>
+                    <li style="margin-bottom:12px;">No compartimos datos con terceros: Los datos personales proporcionados no serán compartidos con terceros sin el consentimiento expreso del usuario, salvo en los casos en que sea necesario para cumplir con la legislación vigente o para la ejecución del contrato.</li>
+                    <li style="margin-bottom:12px;">Envío de comunicaciones: FL Solutions Services SRL podrá remitir correos electrónicos al usuario una vez éste facilite su dirección y bajo las condiciones expresamente aceptadas por él.</li>
+                    <li style="margin-bottom:12px;">Almacenamiento seguro: La información del usuario almacenada en nuestros servidores se conserva en un entorno seguro, siguiendo las mejores prácticas en cuanto a manejo de información y control de acceso.</li>
+                  </ul>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Recomendaciones para la Protección de Datos</h4>
+                  <ul style="padding-left:32px;">
+                    <li style="margin-bottom:12px;">Evitar el envío de datos sensibles por correo electrónico: No utilice el correo electrónico para enviar datos de su tarjeta de crédito u otra información confidencial.</li>
+                    <li style="margin-bottom:12px;">No enviar imágenes con datos sensibles: No envíe imágenes que contengan datos de su tarjeta de crédito u otra información personal.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <style>
+              @media (min-width: 992px) {
+                #politicasSeguridadModalContent {
+                  text-align: left !important;
+                }
+                #politicasSeguridadModalContent h2,
+                #politicasSeguridadModalContent h4 {
+                  text-align: left !important;
+                }
+                #politicasSeguridadModalContent p,
+                #politicasSeguridadModalContent ul {
+                  text-align: left !important;
+                }
+              }
+              @media (max-width: 991.98px) {
+                #politicasSeguridadModalContent {
+                  text-align: center;
+                }
+                #politicasSeguridadModalContent h2,
+                #politicasSeguridadModalContent h4 {
+                  text-align: center;
+                }
+                #politicasSeguridadModalContent p,
+                #politicasSeguridadModalContent ul {
+                  text-align: left;
+                }
+              }
+            </style>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var link = document.getElementById('politicasSeguridadLink');
+                var modal = document.getElementById('politicasSeguridadModal');
+                var closeBtn = document.getElementById('closePoliticasSeguridadModal');
+                link.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  modal.style.display = 'block';
+                  document.body.style.overflow = 'hidden';
+                });
+                closeBtn.addEventListener('click', function() {
+                  modal.style.display = 'none';
+                  document.body.style.overflow = '';
+                });
+                // Cerrar modal al hacer click fuera del contenido
+                modal.addEventListener('click', function(e) {
+                  if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                  }
+                });
+                // Cerrar con ESC
+                document.addEventListener('keydown', function(e) {
+                  if (e.key === "Escape" && modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                  }
+                });
+              });
+            </script>
+            <li class="list-inline-item">
+              <a href="#" class="text-reset" id="politicasInstalacionLink" style="cursor:pointer;">Políticas de Instalación</a>
+            </li>
+            <div id="politicasInstalacionModal" style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:#0f4367; font-family:inherit; overflow-y:auto;">
+              <div style="width:100vw; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0;">
+                <div id="politicasInstalacionModalContent"
+                  style="width:100vw; max-width:100vw; min-height:100vh; background:#0f4367; color:#fff; border-radius:0; box-shadow:none; padding:64px 8vw 48px 8vw; position:relative; font-size:1.5rem; line-height:2;">
+                  <button id="closePoliticasInstalacionModal" style="position:absolute; top:32px; right:48px; background:none; border:none; color:#fff; font-size:3rem; cursor:pointer; line-height:1;">&times;</button>
+                  <h2 style="font-weight:bold; margin-bottom:32px; font-size:2.5rem;">Políticas de Instalación</h2>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Tiempo estimado de instalación por ciudad</h4>
+                  <p style="margin-bottom:24px;">
+                    Higüey, Punta Cana, Bávaro y Gran Santo Domingo: de 1 a 5 días laborables.
+                  </p>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Nuestra instalación básica incluye</h4>
+                  <ul style="margin-bottom:24px; padding-left:32px;">
+                    <li style="margin-bottom:12px;">Kit de instalación compuesto por 3 metros de tubería de cobre y alambre eléctrico.</li>
+                  </ul>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Nuestra instalación básica <span style="color:#ffb300;">NO incluye</span> los siguientes servicios</h4>
+                  <ul style="padding-left:32px;">
+                    <li style="margin-bottom:12px;">Suministro e instalación de base o palometa para el condensador.</li>
+                    <li style="margin-bottom:12px;">Trabajos o instalaciones eléctricas adicionales.</li>
+                    <li style="margin-bottom:12px;">El cliente deberá proporcionar líneas o salidas eléctricas ubicadas a un máximo de 1.5 metros del lugar de instalación del condensador.</li>
+                    <li style="margin-bottom:12px;">Trabajos relacionados con albañilería o construcción ligera.</li>
+                    <li style="margin-bottom:12px;">Servicios que requieran el uso de escalera de extensión.</li>
+                    <li style="margin-bottom:12px;">Realización de desagües en tubería de PVC.</li>
+                    <li style="margin-bottom:12px;">Desmontaje de equipos previamente instalados (en caso de requerir este servicio, se deberá informar antes de la compra para la creación del servicio correspondiente).</li>
+                    <li style="margin-bottom:12px;">Suministro e instalación de protector de voltaje.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <style>
+              @media (min-width: 992px) {
+                #politicasInstalacionModalContent {
+                  text-align: left !important;
+                }
+                #politicasInstalacionModalContent h2,
+                #politicasInstalacionModalContent h4 {
+                  text-align: left !important;
+                }
+                #politicasInstalacionModalContent p,
+                #politicasInstalacionModalContent ul {
+                  text-align: left !important;
+                }
+              }
+              @media (max-width: 991.98px) {
+                #politicasInstalacionModalContent {
+                  text-align: center;
+                }
+                #politicasInstalacionModalContent h2,
+                #politicasInstalacionModalContent h4 {
+                  text-align: center;
+                }
+                #politicasInstalacionModalContent p,
+                #politicasInstalacionModalContent ul {
+                  text-align: left;
+                }
+              }
+            </style>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var linkInst = document.getElementById('politicasInstalacionLink');
+                var modalInst = document.getElementById('politicasInstalacionModal');
+                var closeBtnInst = document.getElementById('closePoliticasInstalacionModal');
+                linkInst.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  modalInst.style.display = 'block';
+                  document.body.style.overflow = 'hidden';
+                });
+                closeBtnInst.addEventListener('click', function() {
+                  modalInst.style.display = 'none';
+                  document.body.style.overflow = '';
+                });
+                // Cerrar modal al hacer click fuera del contenido
+                modalInst.addEventListener('click', function(e) {
+                  if (e.target === modalInst) {
+                    modalInst.style.display = 'none';
+                    document.body.style.overflow = '';
+                  }
+                });
+                // Cerrar con ESC
+                document.addEventListener('keydown', function(e) {
+                  if (e.key === "Escape" && modalInst.style.display === 'block') {
+                    modalInst.style.display = 'none';
+                    document.body.style.overflow = '';
+                  }
+                });
+              });
+            </script>
+            <!-- INSERT_YOUR_CODE -->
+            <li class="list-inline-item">
+              <a href="#" class="text-reset" id="politicasDevolucionLink" style="cursor:pointer;">Políticas de devolución en ventas</a>
+            </li>
+            <div id="politicasDevolucionModal" style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:#0f4367; font-family:inherit; overflow-y:auto;">
+              <div style="width:100vw; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0;">
+                <div id="politicasDevolucionModalContent"
+                  style="width:100vw; max-width:100vw; min-height:100vh; background:#0f4367; color:#fff; border-radius:0; box-shadow:none; padding:64px 8vw 48px 8vw; position:relative; font-size:1.5rem; line-height:2;">
+                  <button id="closePoliticasDevolucionModal" style="position:absolute; top:32px; right:48px; background:none; border:none; color:#fff; font-size:3rem; cursor:pointer; line-height:1;">&times;</button>
+                  <h2 style="font-weight:bold; margin-bottom:32px; font-size:2.5rem;">Políticas de Devolución en Ventas</h2>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Condiciones Generales</h4>
+                  <ul style="margin-bottom:24px; padding-left:32px;">
+                    <li style="margin-bottom:12px;">El cliente podrá solicitar el cambio o la devolución del producto dentro de los treinta (30) días naturales contados a partir de la fecha de compra, siempre que el aire acondicionado no haya sido instalado.</li>
+                    <li style="margin-bottom:12px;">Es imprescindible la presentación de la factura original de compra para procesar cualquier solicitud de cambio o devolución.</li>
+                    <li style="margin-bottom:12px;">Los equipos sujetos a cambio o devolución deben ser entregados en su empaque original, en perfecto estado y sin signos de uso.</li>
+                  </ul>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Procedimientos en caso de instalación previa</h4>
+                  <ul style="margin-bottom:24px; padding-left:32px;">
+                    <li style="margin-bottom:12px;">Si el equipo ha sido instalado, se descontará el valor correspondiente a la instalación, desinstalación y un 20% del valor del equipo por concepto de depreciación y reempaque.</li>
+                  </ul>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Proceso de Reembolso</h4>
+                  <ul style="margin-bottom:24px; padding-left:32px;">
+                    <li style="margin-bottom:12px;">Todas las devoluciones generarán una nota de crédito, la cual podrá ser utilizada para la compra de otro equipo.</li>
+                    <li style="margin-bottom:12px;">En caso de que la devolución sea procedente, el reembolso se efectuará a través del mismo medio de pago utilizado en la compra.</li>
+                    <li style="margin-bottom:12px;">En ningún caso se realizará devolución de dinero en efectivo.</li>
+                  </ul>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Recomendaciones para una experiencia óptima</h4>
+                  <ul style="padding-left:32px;">
+                    <li style="margin-bottom:12px;">Para garantizar una gestión eficiente de su solicitud, le sugerimos contactar a nuestro servicio de atención al cliente antes de proceder con la devolución del producto.</li>
+                    <li style="margin-bottom:12px;">Asegúrese de conservar todos los documentos relacionados con la compra, incluyendo la factura y cualquier comunicación pertinente.</li>
+                    <li style="margin-bottom:12px;">Verifique que el producto esté en condiciones óptimas para su devolución, siguiendo las instrucciones proporcionadas en nuestra política.</li>
+                    <li style="margin-bottom:12px;">Si requiere asistencia adicional o desea más información sobre nuestras políticas, no dude en ponerse en contacto con nuestro equipo de atención al cliente.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <style>
+              @media (min-width: 992px) {
+                #politicasDevolucionModalContent {
+                  text-align: left !important;
+                }
+                #politicasDevolucionModalContent h2,
+                #politicasDevolucionModalContent h4 {
+                  text-align: left !important;
+                }
+                #politicasDevolucionModalContent p,
+                #politicasDevolucionModalContent ul {
+                  text-align: left !important;
+                }
+              }
+              @media (max-width: 991.98px) {
+                #politicasDevolucionModalContent {
+                  text-align: center;
+                }
+                #politicasDevolucionModalContent h2,
+                #politicasDevolucionModalContent h4 {
+                  text-align: center;
+                }
+                #politicasDevolucionModalContent p,
+                #politicasDevolucionModalContent ul {
+                  text-align: left;
+                }
+              }
+            </style>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var linkDev = document.getElementById('politicasDevolucionLink');
+                var modalDev = document.getElementById('politicasDevolucionModal');
+                var closeBtnDev = document.getElementById('closePoliticasDevolucionModal');
+                linkDev.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  modalDev.style.display = 'block';
+                  document.body.style.overflow = 'hidden';
+                });
+                closeBtnDev.addEventListener('click', function() {
+                  modalDev.style.display = 'none';
+                  document.body.style.overflow = '';
+                });
+                // Cerrar modal al hacer click fuera del contenido
+                modalDev.addEventListener('click', function(e) {
+                  if (e.target === modalDev) {
+                    modalDev.style.display = 'none';
+                    document.body.style.overflow = '';
+                  }
+                });
+                // Cerrar con ESC
+                document.addEventListener('keydown', function(e) {
+                  if (e.key === "Escape" && modalDev.style.display === 'block') {
+                    modalDev.style.display = 'none';
+                    document.body.style.overflow = '';
+                  }
+                });
+              });
+            </script>
+            <li class="list-inline-item">
+              <a href="#" class="text-reset" id="politicasGarantiaLink" style="cursor:pointer;">Políticas de Garantía en Ventas</a>
+            </li>
+            <div id="politicasGarantiaModal" style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:#0f4367; font-family:inherit; overflow-y:auto;">
+              <div style="width:100vw; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0;">
+                <div id="politicasGarantiaModalContent"
+                  style="width:100vw; max-width:100vw; min-height:100vh; background:#0f4367; color:#fff; border-radius:0; box-shadow:none; padding:64px 8vw 48px 8vw; position:relative; font-size:1.5rem; line-height:2;">
+                  <button id="closePoliticasGarantiaModal" style="position:absolute; top:32px; right:48px; background:none; border:none; color:#fff; font-size:3rem; cursor:pointer; line-height:1;">&times;</button>
+                  <h2 style="font-weight:bold; margin-bottom:32px; font-size:2.5rem;">Políticas de Garantía en Ventas</h2>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Dos años de garantía completa limitada</h4>
+                  <p style="margin-bottom:24px;">
+                    FL Solutions Services SRL ofrece una garantía limitada de dos (2) años a partir de la fecha de compra del producto. Durante este período, FL Solutions Services SRL, a través de sus servicios autorizados, reparará o reemplazará sin costo alguno para el usuario cualquier componente que presente defectos de fabricación o ensamblaje.
+                  </p>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Exclusiones de la Garantía</h4>
+                  <ul style="margin-bottom:24px; padding-left:32px;">
+                    <li style="margin-bottom:12px;">Daños derivados de la falta de mantenimiento periódico, según lo indicado en el manual del usuario o por el instalador autorizado.</li>
+                    <li style="margin-bottom:12px;">Daños ocasionados por una instalación incorrecta o aplicación inapropiada del producto.</li>
+                    <li style="margin-bottom:12px;">Fallas en el arranque del equipo debido a condiciones inadecuadas de voltaje, fusibles quemados, interruptores de circuito abiertos o interrupciones en el suministro eléctrico.</li>
+                    <li style="margin-bottom:12px;">Daños resultantes de abuso, alteraciones no autorizadas o modificaciones del producto sin la autorización de FL Solutions Services SRL.</li>
+                    <li style="margin-bottom:12px;">Daños causados por eventos naturales como inundaciones, incendios, descargas eléctricas (rayos) u otros factores fuera del control de FL Solutions Services SRL.</li>
+                    <li style="margin-bottom:12px;">Daños ocasionados por ambientes corrosivos, definidos como aquellos en los que el producto se encuentra cerca de agua salada marina a una distancia menor a diez (10) millas.</li>
+                    <li style="margin-bottom:12px;">Daños durante el transporte del producto. Esta responsabilidad recae exclusivamente en la empresa o persona encargada de la entrega o transporte del producto.</li>
+                    <li style="margin-bottom:12px;">Daños a la propiedad comercial, residencial o industrial durante la instalación, transporte y manejo de los productos de FL Solutions Services SRL.</li>
+                  </ul>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Condiciones de Servicio Bajo Garantía</h4>
+                  <ul style="padding-left:32px;">
+                    <li style="margin-bottom:12px;">Todo trabajo realizado bajo los términos de la garantía deberá llevarse a cabo durante el horario laboral habitual.</li>
+                    <li style="margin-bottom:12px;">Las partes o repuestos, sean nuevos o reacondicionados, asumirán la garantía remanente del período original de garantía.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <style>
+              @media (min-width: 992px) {
+                #politicasGarantiaModalContent {
+                  text-align: left !important;
+                }
+                #politicasGarantiaModalContent h2,
+                #politicasGarantiaModalContent h4 {
+                  text-align: left !important;
+                }
+                #politicasGarantiaModalContent p,
+                #politicasGarantiaModalContent ul {
+                  text-align: left !important;
+                }
+              }
+              @media (max-width: 991.98px) {
+                #politicasGarantiaModalContent {
+                  text-align: center;
+                }
+                #politicasGarantiaModalContent h2,
+                #politicasGarantiaModalContent h4 {
+                  text-align: center;
+                }
+                #politicasGarantiaModalContent p,
+                #politicasGarantiaModalContent ul {
+                  text-align: left;
+                }
+              }
+            </style>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var linkGarantia = document.getElementById('politicasGarantiaLink');
+                var modalGarantia = document.getElementById('politicasGarantiaModal');
+                var closeBtnGarantia = document.getElementById('closePoliticasGarantiaModal');
+                linkGarantia.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  modalGarantia.style.display = 'block';
+                  document.body.style.overflow = 'hidden';
+                });
+                closeBtnGarantia.addEventListener('click', function() {
+                  modalGarantia.style.display = 'none';
+                  document.body.style.overflow = '';
+                });
+                // Cerrar modal al hacer click fuera del contenido
+                modalGarantia.addEventListener('click', function(e) {
+                  if (e.target === modalGarantia) {
+                    modalGarantia.style.display = 'none';
+                    document.body.style.overflow = '';
+                  }
+                });
+                // Cerrar con ESC
+                document.addEventListener('keydown', function(e) {
+                  if (e.key === "Escape" && modalGarantia.style.display === 'block') {
+                    modalGarantia.style.display = 'none';
+                    document.body.style.overflow = '';
+                  }
+                });
+              });
+            </script>
+            <li class="list-inline-item">
+              <a href="#" class="text-reset" id="politicaPrivacidadLink" style="cursor:pointer;">Política de privacidad</a>
+            </li>
+            <div id="politicaPrivacidadModal" style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:#0f4367; font-family:inherit; overflow-y:auto;">
+              <div style="width:100vw; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0;">
+                <div id="politicaPrivacidadModalContent"
+                  style="width:100vw; max-width:100vw; min-height:100vh; background:#0f4367; color:#fff; border-radius:0; box-shadow:none; padding:64px 8vw 48px 8vw; position:relative; font-size:1.5rem; line-height:2;">
+                  <button id="closePoliticaPrivacidadModal" style="position:absolute; top:32px; right:48px; background:none; border:none; color:#fff; font-size:3rem; cursor:pointer; line-height:1;">&times;</button>
+                  <h2 style="font-weight:bold; margin-bottom:32px; font-size:2.5rem;">Política de Privacidad</h2>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Información Recopilada</h4>
+                  <p style="margin-bottom:24px;">
+                    FL Solutions Services SRL recopila información personal cuando usted la proporciona voluntariamente al solicitar nuestros servicios, realizar una compra o llevar a cabo una transacción a través de nuestro sitio web, en persona o por teléfono. La información recopilada puede incluir, pero no se limita a, su nombre, dirección física, dirección postal, dirección de correo electrónico, número de teléfono y datos de su tarjeta de crédito o débito.
+                  </p>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Uso de la Información</h4>
+                  <p style="margin-bottom:24px;">
+                    La información personal que recopilamos se utiliza exclusivamente para brindarle los servicios solicitados y procesar los pagos relacionados con su compra. No compartimos su información con terceros, salvo cuando sea necesario para proporcionar el servicio solicitado o completar la transacción de pago, como por ejemplo con instaladores o entidades bancarias, según corresponda. No utilizamos su información personal para fines de marketing a menos que hayamos recibido su consentimiento expreso.
+                  </p>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Protección de la Información</h4>
+                  <p style="margin-bottom:24px;">
+                    Implementamos medidas razonables para proteger la seguridad de su información personal. Sin embargo, le recomendamos que también tome precauciones para proteger sus propios datos personales.
+                  </p>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Retención de la Información</h4>
+                  <p style="margin-bottom:24px;">
+                    Conservaremos su información personal únicamente durante el tiempo necesario para completar el servicio solicitado, procesar su pago y cumplir con nuestras obligaciones legales, incluyendo cualquier proceso de garantía. Posteriormente, su información será eliminada de acuerdo con las leyes aplicables.
+                  </p>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Cambios en la Política de Privacidad</h4>
+                  <p style="margin-bottom:24px;">
+                    Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Cualquier cambio será publicado en esta página con una nueva fecha de actualización. Le recomendamos que revise periódicamente esta política.
+                  </p>
+                  <h4 style="font-weight:bold; margin-top:32px; font-size:1.7rem;">Contacto</h4>
+                  <p>
+                    Si tiene preguntas o inquietudes sobre nuestra política de privacidad, por favor, contáctenos en:<br>
+                    Correo electrónico: <a href="mailto:pc@flsolutionsservices.com" style="color:#2daae1;">pc@flsolutionsservices.com</a><br>
+                    Teléfono: <a href="tel:+18494011905" style="color:#2daae1;">+1 (849) 401-1905</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <style>
+              @media (min-width: 992px) {
+                #politicaPrivacidadModalContent {
+                  text-align: left !important;
+                }
+                #politicaPrivacidadModalContent h2,
+                #politicaPrivacidadModalContent h4 {
+                  text-align: left !important;
+                }
+                #politicaPrivacidadModalContent p {
+                  text-align: left !important;
+                }
+              }
+              @media (max-width: 991.98px) {
+                #politicaPrivacidadModalContent {
+                  text-align: center;
+                }
+                #politicaPrivacidadModalContent h2,
+                #politicaPrivacidadModalContent h4 {
+                  text-align: center;
+                }
+                #politicaPrivacidadModalContent p {
+                  text-align: left;
+                }
+              }
+            </style>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var linkPrivacidad = document.getElementById('politicaPrivacidadLink');
+                var modalPrivacidad = document.getElementById('politicaPrivacidadModal');
+                var closeBtnPrivacidad = document.getElementById('closePoliticaPrivacidadModal');
+                linkPrivacidad.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  modalPrivacidad.style.display = 'block';
+                  document.body.style.overflow = 'hidden';
+                });
+                closeBtnPrivacidad.addEventListener('click', function() {
+                  modalPrivacidad.style.display = 'none';
+                  document.body.style.overflow = '';
+                });
+                // Cerrar modal al hacer click fuera del contenido
+                modalPrivacidad.addEventListener('click', function(e) {
+                  if (e.target === modalPrivacidad) {
+                    modalPrivacidad.style.display = 'none';
+                    document.body.style.overflow = '';
+                  }
+                });
+                // Cerrar con ESC
+                document.addEventListener('keydown', function(e) {
+                  if (e.key === "Escape" && modalPrivacidad.style.display === 'block') {
+                    modalPrivacidad.style.display = 'none';
+                    document.body.style.overflow = '';
+                  }
+                });
+              });
+            </script>
             <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=61574549141228#" class="text-reset" target="_blank">facebook</a></li>
             <li class="list-inline-item ms-1"><a href="https://www.instagram.com/flsolutionsservices/?fbclid=IwZXh0bgNhZW0CMTEAYnJpZBExcXF0RzFBVm5xUDJqcVlVMgEeLK9K6wI8XWG03SciAOUiHtZ1YpugOY1ES8yWMx46PY0CzetC7M_JQCYb3Ug_aem_QOTA8MC4pm5FlLp3mb8zYQ" class="text-reset" target="_blank">instagram</a></li>
           </ul>
