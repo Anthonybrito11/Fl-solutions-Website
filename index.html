@@ -13,7 +13,31 @@
 </head>
 
 <body>
-    <!-- INSERT_YOUR_CODE -->
+  <!-- Widget Configuration -->
+<script>
+  window.ChatWidgetConfig = {
+      webhook: {
+          url: 'https://anthonybritodev.app.n8n.cloud/webhook/a889d2ae-2159-402f-b326-5f61e90f602e/chat',
+          route: 'general'
+      },
+      branding: {
+          logo: 'assets/images/logo/favicon1.png',
+          name: 'FL SOLUTIONS SERVICES SRL', // Your company name
+          welcomeText: 'Hola 👋, como puedo ayudarte?', //Welcome message
+          responseTimeText: 'respondemos rapidamente' //Response time message
+      },
+      style: {
+          primaryColor: '#163d56', //Primary color
+          secondaryColor: '#163d56', //Secondary color
+          position: 'right', //Position of the widget (left or right)
+          backgroundColor: '#ffffff', //Background color of the chat widget
+          fontColor: '#333333' //Text color for messages and interface
+      }
+  };
+</script>
+<script src="https://nocodeveloper.com/chat.js"></script>
+
+    
     <style>
       /* Aumentar el tamaño de fuente y paddings en escritorio para mejorar la visibilidad */
       @media (min-width: 992px) {
