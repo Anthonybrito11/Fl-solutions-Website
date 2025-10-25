@@ -1,0 +1,12 @@
+# robots.txt para FL Solutions Services SRL
+User-agent: *
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Permitir todo lo demás
+Allow: /
+
+# Indica la ubicación del sitemap
+Sitemap: https://www.flsolutionsservices.com/sitemap.xml
