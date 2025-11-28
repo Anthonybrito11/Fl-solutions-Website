@@ -67,13 +67,13 @@
           "Friday"
         ],
         "opens": "08:00",
-        "closes": "18:30"
+        "closes": "18:00"
       },
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": "Saturday",
         "opens": "09:00",
-        "closes": "16:00"
+        "closes": "18:00"
       },
       {
         "@type": "OpeningHoursSpecification",
@@ -200,6 +200,12 @@
         #mainNav .nav-link {
           color: #fff !important;
         }
+        #mainNav .navbar-collapse.show {
+          background-color: #0f4367;
+          padding: 1rem;
+          border-radius: 0 0 15px 15px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
       }
     </style>
     <nav id="mainNav" class="navbar navbar-expand-lg navbar-sticky navbar-dark">
@@ -263,7 +269,7 @@
           </div>
         </div>
         <div class="background background-overlay" data-aos="zoom-out" data-aos-delay="200">
-            <img src="assets/images/repair-1.png" alt="Fondo" style="width: 100%; height: 100%; object-fit: cover;" />
+            <img src="assets/images/repair-1.png" alt="Técnico reparando aire acondicionado" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
     </section>
 
@@ -272,7 +278,7 @@
           <div class="row align-items-center justify-content-between">
             <div class="col-lg-6">
               <h2 class="eyebrow text-muted">NOSOTROS</h2>
-              <h4 style="color: #0f4367;">Expertos en Aires Acondicionados y Línea Blanca con Garantía y Soporte en Punta Cana.</h4>
+              <h4 style="color: #0f4367;">Expertos en Aires Acondicionados y Línea Blanca con Garantía y Soporte en el gran Santo Domingo y Punta Cana.</h4>
               <p class="text-secondary">En FL Solutions Services SRL nos especializamos en la venta, instalación y mantenimiento de aires acondicionados y electrodomésticos. Contamos con técnicos certificados, atención personalizada y garantía de hasta 2 años en nuestras instalaciones.</p>
               <ul class="list-group list-group-minimal">
                 <li class="list-group-item d-flex align-items-center">
@@ -297,7 +303,7 @@
                     <div class="icon-box icon-box-sm bg-opaque-green rounded-circle me-2"><i
                         class="bi bi-check2 text-green"></i>
                     </div>
-                    Apertura próxima en C. Eugenio Aguiar #15, Los trinitarios, Santo Domingo Este
+                     C. Eugenio Aguiar #15, Los trinitarios, Santo Domingo Este
                   </li>
                   <li class="list-group-item d-flex align-items-center">
                     <div class="icon-box icon-box-sm bg-opaque-green rounded-circle me-2"><i
@@ -308,7 +314,7 @@
               </ul>
             </div>
             <div class="col-lg-6" data-aos="fade-up">
-                <img src="assets/images/service-1.png" class="img-fluid" alt="Image">
+                <img src="assets/images/service-1.png" class="img-fluid" alt="Técnico de FL Solutions instalando aire acondicionado">
                 <span></span>
             </div>
           </div>
@@ -767,14 +773,14 @@
                   var cards = next.querySelectorAll('.card-servicio');
                   cards.forEach(function(card, idx) {
                     card.style.animation = 'none';
-                    // trigger reflow
+                    
                     void card.offsetWidth;
                     card.style.animation = 'fadeInUp 0.7s cubic-bezier(.4,0,.2,1)';
                   });
                 }
               });
             }
-            // Activar indicador custom
+            
             var indicators = document.querySelectorAll('.carousel-indicators-custom button');
             var carouselEl = document.getElementById('serviciosCarousel');
             if (carouselEl && indicators.length) {
@@ -812,8 +818,8 @@
                       <div class="product">
                         <figure class="product-image">
                           <a href="#!">
-                            <img src="assets/images/products/TGM-AIRE.png" alt="Image" />
-                            <img src="assets/images/products/TGM-CONDEX.png" alt="Image" />
+                            <img src="assets/images/products/TGM-AIRE.png" alt="Aire Acondicionado TGM Inverter 12000 BTU" />
+                            <img src="assets/images/products/TGM-CONDEX.png" alt="Condensador TGM Inverter" />
                           </a>
                         </figure>
                         <a class="product-title" href="#!">12,000 BTU TGM Inverter SEER 19</a>
@@ -822,8 +828,8 @@
                       <div class="product">
                         <figure class="product-image">
                           <a href="#!">
-                            <img src="assets/images/products/MILEXUS-AIRE.png" alt="Image" />
-                            <img src="assets/images/products/MILEXUS-CONDEX.png" alt="Image" />
+                            <img src="assets/images/products/MILEXUS-AIRE.png" alt="Aire Acondicionado Milexus Inverter 18000 BTU" />
+                            <img src="assets/images/products/MILEXUS-CONDEX.png" alt="Condensador Milexus Inverter" />
                           </a>
                         </figure>
                         <a class="product-title" href="#!">18,000 BTU Milexus Inverter</a>
@@ -833,8 +839,8 @@
                         <div class="product">
                          <figure class="product-image">
                            <a href="#!">
-                             <img src="assets/images/products/NISATO AIRE.webp" alt="Image" />
-                             <img src="assets/images/products/NISATO CONDENSADOR.png" alt="Image" />
+                             <img src="assets/images/products/NISATO AIRE.webp" alt="Aire Acondicionado Nisato 12000 BTU" />
+                             <img src="assets/images/products/NISATO CONDENSADOR.png" alt="Condensador Nisato" />
                            </a>
                          </figure>
                          <a class="product-title" href="#!">12,000 BTU NISATO</a>
@@ -844,8 +850,8 @@
                       <div class="product">
                         <figure class="product-image">
                           <a href="#!">
-                            <img src="assets/images/products/TGM-AIRE.png" alt="Image" />
-                            <img src="assets/images/products/TGM-CONDEX.png" alt="Image" />
+                            <img src="assets/images/products/TGM-AIRE.png" alt="Aire Acondicionado TGM Inverter 24000 BTU" />
+                            <img src="assets/images/products/TGM-CONDEX.png" alt="Condensador TGM Inverter" />
                           </a>
                         </figure>
                         <a class="product-title" href="#!">24,000 BTU TGM Inverter SEER 20 </a>
@@ -854,8 +860,8 @@
                       <div class="product">
                         <figure class="product-image">
                           <a href="#!">
-                            <img src="assets/images/products/TGM-AIRE.png" alt="Image" />
-                            <img src="assets/images/products/TGM-CONDEX.png" alt="Image" />
+                            <img src="assets/images/products/TGM-AIRE.png" alt="Aire Acondicionado TGM Inverter 36000 BTU" />
+                            <img src="assets/images/products/TGM-CONDEX.png" alt="Condensador TGM Inverter" />
                           </a>
                         </figure>
                         <a class="product-title" href="#!">36,000 BTU TGM Inverter</a>
@@ -1520,7 +1526,7 @@
       <p style="margin-bottom: 1.1rem;">
         <b>¿Qué es?</b><br>
         Es un programa para clientes frecuentes que desean ahorrar en <b>mantenimiento</b>, <b>instalación</b> y <b>compra de equipos</b>.
-        Por solo <span style="font-weight:bold;">USD$200 al año</span>, recibes importantes descuentos todo el año.
+        Por solo <span style="font-weight:bold;">DOP$6,000 al año</span>, recibes importantes descuentos todo el año.
       </p>
       <div style="margin-bottom: 1rem;">
         <ul style="padding-left:1.2em; margin:0;">
@@ -1539,7 +1545,9 @@
         </ul>
       </div>
       <div style="margin-bottom: 0.9rem;">
-        <b style="color:#2daae1;font-size:1.2rem;">Afíliate por solo USD$200/año</b>
+        <b style="color:#2daae1;font-size:1.2rem;">¡Por motivo de Black Friday, afíliate por solo DOP$0!</b>
+        <br>
+        <span style="font-size:0.92rem;color:#757575;">*Oferta válida solo por el mes de noviembre.</span>
         <br>
         <span style="color:#444;">Recupera tu inversión desde el primer servicio.</span>
       </div>
@@ -1674,7 +1682,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mostrar modal automáticamente al cargar
   setTimeout(function() {
     document.getElementById('contactModalOverlay').style.display = 'flex';
-  }, 600);
+  }, 4000);
 
   // Cerrar modal
   document.getElementById('closeContactModal').onclick = function() {
